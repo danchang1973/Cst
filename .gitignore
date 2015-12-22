@@ -55,3 +55,2066 @@ __history/
 
 # Castalia statistics file
 *.stat
+
+unit pUnit1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, ADODB, StdCtrls, Grids, DBGrids, OleServer, ExcelXP, jpeg,
+  ExtCtrls, ComCtrls, DBXpress, FMTBcd, SqlExpr, QRCtrls, QuickRpt;
+
+type
+  TForm1 = class(TForm)
+    ExcelApplication1: TExcelApplication;
+    ADOConnection1: TADOConnection;
+    DataSource1: TDataSource;
+    ADOQuery1: TADOQuery;
+    ADOQuery2: TADOQuery;
+    ADOQuery3: TADOQuery;
+    ADOQuery4: TADOQuery;
+    ADOQuery5: TADOQuery;
+    DataSource2: TDataSource;
+    ADOQuery6: TADOQuery;
+    ADOQuery7: TADOQuery;
+    DataSource3: TDataSource;
+    ADOQuery8: TADOQuery;
+    ADOQuery9: TADOQuery;
+    ADOQuery10: TADOQuery;
+    ADOConnection2: TADOConnection;
+    ADOQuery11: TADOQuery;
+    DataSource4: TDataSource;
+    ADOQuery12: TADOQuery;
+    DataSource5: TDataSource;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Panel3: TPanel;
+    Image1: TImage;
+    Label10: TLabel;
+    Label11: TLabel;
+    Label12: TLabel;
+    ProgressBar1: TProgressBar;
+    PageControl1: TPageControl;
+    TabSheet3: TTabSheet;
+    Label9: TLabel;
+    Label14: TLabel;
+    Label15: TLabel;
+    TabSheet5: TTabSheet;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    Label6: TLabel;
+    Edit6: TEdit;
+    Label7: TLabel;
+    Edit7: TEdit;
+    Button1: TButton;
+    Button4: TButton;
+    StringGrid1: TStringGrid;
+    TabSheet1: TTabSheet;
+    Panel6: TPanel;
+    Panel7: TPanel;
+    Panel8: TPanel;
+    Label1: TLabel;
+    Edit1: TEdit;
+    Label4: TLabel;
+    Edit4: TEdit;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Label5: TLabel;
+    Edit5: TEdit;
+    Edit3: TEdit;
+    Label3: TLabel;
+    Button7: TButton;
+    Label8: TLabel;
+    Edit8: TEdit;
+    Button5: TButton;
+    Button3: TButton;
+    Button10: TButton;
+    Button8: TButton;
+    DBGrid2: TDBGrid;
+    Panel10: TPanel;
+    Button12: TButton;
+    Edit9: TEdit;
+    Edit11: TEdit;
+    Edit10: TEdit;
+    Button9: TButton;
+    Label21: TLabel;
+    DBGrid4: TDBGrid;
+    Button6: TButton;
+    Button2: TButton;
+    Label13: TLabel;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    GroupBox3: TGroupBox;
+    Label50: TLabel;
+    Label51: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    ComboBox1: TComboBox;
+    ComboBox15: TComboBox;
+    ComboBox12: TComboBox;
+    ComboBox11: TComboBox;
+    Label20: TLabel;
+    Label53: TLabel;
+    ComboBox3: TComboBox;
+    ComboBox2: TComboBox;
+    Label28: TLabel;
+    Label29: TLabel;
+    Label35: TLabel;
+    Label30: TLabel;
+    Label33: TLabel;
+    Label34: TLabel;
+    Label24: TLabel;
+    Label26: TLabel;
+    Label27: TLabel;
+    Label25: TLabel;
+    Label18: TLabel;
+    Label19: TLabel;
+    Edit12: TEdit;
+    Edit13: TEdit;
+    Label36: TLabel;
+    Label37: TLabel;
+    Label38: TLabel;
+    Edit14: TEdit;
+    Button11: TButton;
+    Label44: TLabel;
+    Label45: TLabel;
+    Label46: TLabel;
+    Label47: TLabel;
+    Label39: TLabel;
+    Edit15: TEdit;
+    Label41: TLabel;
+    Label40: TLabel;
+    Edit16: TEdit;
+    Label42: TLabel;
+    Label63: TLabel;
+    Label64: TLabel;
+    Label73: TLabel;
+    ComboBox4: TComboBox;
+    Label74: TLabel;
+    Label75: TLabel;
+    Label76: TLabel;
+    Label77: TLabel;
+    Label78: TLabel;
+    Label79: TLabel;
+    Label80: TLabel;
+    Label83: TLabel;
+    Label84: TLabel;
+    Label85: TLabel;
+    Label86: TLabel;
+    Label87: TLabel;
+    Edit17: TEdit;
+    Label88: TLabel;
+    Label89: TLabel;
+    Label90: TLabel;
+    Label91: TLabel;
+    Label92: TLabel;
+    Label93: TLabel;
+    Label94: TLabel;
+    Label95: TLabel;
+    Label96: TLabel;
+    Label97: TLabel;
+    Label98: TLabel;
+    DBGrid1: TDBGrid;
+    GroupBox4: TGroupBox;
+    Label23: TLabel;
+    Label31: TLabel;
+    Label43: TLabel;
+    Label48: TLabel;
+    Label52: TLabel;
+    Label54: TLabel;
+    Label56: TLabel;
+    Label57: TLabel;
+    Label58: TLabel;
+    Label59: TLabel;
+    Label22: TLabel;
+    Label32: TLabel;
+    Label49: TLabel;
+    Label55: TLabel;
+    Label60: TLabel;
+    Label61: TLabel;
+    Label62: TLabel;
+    Label65: TLabel;
+    Label66: TLabel;
+    Label67: TLabel;
+    Label68: TLabel;
+    Label69: TLabel;
+    Label70: TLabel;
+    Label71: TLabel;
+    Label72: TLabel;
+    Label82: TLabel;
+    Label81: TLabel;
+    DBGrid3: TDBGrid;
+    Label99: TLabel;
+    Edit18: TEdit;
+    Label100: TLabel;
+    Label101: TLabel;
+    Label102: TLabel;
+    Label103: TLabel;
+    Label104: TLabel;
+    Label105: TLabel;
+    Edit20: TEdit;
+    Label106: TLabel;
+    Label107: TLabel;
+    Label108: TLabel;
+    Edit19: TEdit;
+    Label109: TLabel;
+    Label110: TLabel;
+    Label111: TLabel;
+    Edit21: TEdit;
+    Label112: TLabel;
+    Label113: TLabel;
+    Label114: TLabel;
+    Label115: TLabel;
+    Edit22: TEdit;
+    Edit23: TEdit;
+    Edit24: TEdit;
+    Edit25: TEdit;
+    Edit26: TEdit;
+    Label116: TLabel;
+    Label117: TLabel;
+    procedure FormShow(Sender: TObject);
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Edit3Change(Sender: TObject);
+    procedure DataSource2DataChange(Sender: TObject; Field: TField);
+    procedure DBGrid2DrawColumnCell(Sender: TObject; const Rect: TRect;
+      DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure Button5Click(Sender: TObject);
+    procedure StringGrid1DrawCell(Sender: TObject; ACol, ARow: Integer;
+      Rect: TRect; State: TGridDrawState);
+    procedure Button6Click(Sender: TObject);
+    procedure Button7Click(Sender: TObject);
+    procedure DBGrid2KeyPress(Sender: TObject; var Key: Char);
+    procedure DBGrid2DrawDataCell(Sender: TObject; const Rect: TRect;
+      Field: TField; State: TGridDrawState);
+    procedure Button8Click(Sender: TObject);
+    procedure DBGrid2CellClick(Column: TColumn);
+    procedure Button9Click(Sender: TObject);
+    procedure Button10Click(Sender: TObject);
+    procedure DBGrid2ColExit(Sender: TObject);
+    procedure Edit9KeyPress(Sender: TObject; var Key: Char);
+    procedure DBGrid2Exit(Sender: TObject);
+    procedure DBGrid4CellClick(Column: TColumn);
+    procedure Button11Click(Sender: TObject);
+    procedure Button12Click(Sender: TObject);
+    procedure ComboBox11Change(Sender: TObject);
+    procedure ComboBox12Change(Sender: TObject);
+    procedure ComboBox3Change(Sender: TObject);
+    procedure ComboBox15Change(Sender: TObject);
+    procedure ComboBox1Change(Sender: TObject);
+    procedure ComboBox2Change(Sender: TObject);
+    procedure Edit14Change(Sender: TObject);
+    procedure Edit14KeyPress(Sender: TObject; var Key: Char);
+    procedure Edit16Change(Sender: TObject);
+    procedure ComboBox4Change(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  s1:array[1..100,1..10] of string;
+  pn,sc:string;
+  cellchange:integer;
+  TC009:REAL;
+implementation
+
+uses rpt4,rpt2,Unit3;
+
+{$R *.dfm}
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  pn:='1S06P6A23000';                                                           //預設品號
+  sc:='01';                                                                     //預設 cell 廠商
+  cellchange:=0;                                                                //cell 廠商更換檢查碼
+//  ADOQuery1.active:=true;                                                     //訂單列表
+//  ADOQuery1.last;
+  ADOQuery8.close;                                                              //查匯率
+  ADOQuery8.SQL.Clear;
+  ADOQuery8.SQL.add('select MG002,MG003');
+  ADOQuery8.sql.add('FROM CMSMG');
+  ADOQuery8.sql.add('WHERE MG001=:s1');
+  ADOQuery8.sql.add('ORDER BY MG002');
+  ADOQuery8.Parameters.parambyname('s1').VALUE:=ComboBox4.TEXT;
+  ADOQuery8.open;
+  ADOQuery8.LAST;
+  EDIT14.TEXT:=FLOATTOSTR(ADOQuery8.fieldbyname('MG003').value);
+  TC009:=STRTOFLOAT(EDIT14.TEXT);  //匯率
+end;
+
+procedure TForm1.DBGrid1CellClick(Column: TColumn);
+var
+  s:array [1..20] of real;
+  i:integer;
+  ym:string;
+begin
+  Edit1.text:= ADOQuery1.fieldbyname('TD001').value;
+  Edit2.text:= ADOQuery1.fieldbyname('TD002').value;
+  Edit3.text:= ADOQuery1.fieldbyname('TD003').value;
+  Edit4.text:= copy(ADOQuery1.fieldbyname('TD004').value,1,12);
+  Edit5.text:= ADOQuery1.fieldbyname('TD008').value;
+  Edit6.text:= copy(ADOQuery1.fieldbyname('TD004').value,1,12);
+  Edit7.text:= ADOQuery1.fieldbyname('TD008').value;
+  Edit16.text:=ADOQuery1.fieldbyname('TD008').value;;
+  Label11.Caption:= ADOQuery1.fieldbyname('TD005').value;
+  Label10.Caption:= ADOQuery1.fieldbyname('TC004').value;
+//  Label23.Caption:= ADOQuery1.fieldbyname('TC008').value;
+//  Label29.Caption:= ADOQuery1.fieldbyname('TC008').value;
+  Label57.Caption:= ADOQuery1.fieldbyname('TC008').value;
+  Label54.Caption:= ADOQuery1.fieldbyname('TC008').value;
+  TC009:= ADOQuery1.fieldbyname('TC009').value;
+  Edit14.text:=FLOATTOSTR(TC009);
+
+  IF copy(ADOQuery1.fieldbyname('TD004').value,2,1)='S' THEN ComboBox11.ITEMINDEX:=0;
+  IF copy(ADOQuery1.fieldbyname('TD004').value,2,1)='G' THEN ComboBox11.ITEMINDEX:=1;
+  ComboBox3.ITEMINDEX:= STRTOINT(copy(ADOQuery1.fieldbyname('TD004').value,3,1));
+ 
+  Button1.CLICK;
+
+  s[1]:=0;
+  s[2]:=0;                                      //庫存成本金額合計(料)
+  s[3]:=0;                                      //最近進價金額合計(料)
+  s[4]:=strtofloat(copy(Edit6.text,8,3));       //模組w數
+  s[5]:=TC009;                                  //匯率
+  s[6]:=strtofloat(Edit7.text);                 //片數
+  s[7]:=strtofloat(Edit12.text);                //人工/pcs
+  s[8]:=strtofloat(Edit13.text);                //製費/pcs
+  s[9]:=0;                                      //CELL 瓦數
+  s[10]:=strtofloat(edit15.text);               //自訂cell 單價 USD/W
+  s[11]:=ADOQuery1.fieldbyname('TD012').value;  //訂單金額
+  s[12]:=0;                                     //庫存成本金額合計(料+工+費)
+  s[13]:=0;                                     //最近進價金額合計(料+工+費)
+  s[14]:=(s[7]+s[8])*s[6];                      //(人工+製費)*pcs
+  s[15]:=0;                                     //庫存成本
+  s[16]:=0;                                     //庫存成本金額
+  s[17]:=0;                                     //最近進價
+  s[18]:=0;                                     //最近進價金額
+  s[19]:=0;                                     //工單單頭模組數量統計
+  s[20]:=0;
+
+  ym:=copy(datetostr(now),1,4)+copy(datetostr(now),6,2);
+  ym:=inttostr(strtoint(ym)-1);
+
+  ADOQuery10.close;                                                             //查工單單頭統計模組已生產量
+  ADOQuery10.SQL.Clear;
+  ADOQuery10.SQL.add('select TA001,TA002,TA017');
+  ADOQuery10.sql.add('FROM MOCTA');
+  ADOQuery10.sql.add('WHERE TA026=:s1');
+  ADOQuery10.sql.add('AND TA027=:s2');
+  ADOQuery10.sql.add('AND TA028=:s3');
+  ADOQuery10.sql.add('AND TA001=:s4');
+  ADOQuery10.sql.add('order by TA002');
+  ADOQuery10.Parameters.parambyname('s1').VALUE:=ADOQuery1.fieldbyname('TD001').value;
+  ADOQuery10.Parameters.parambyname('s2').VALUE:=ADOQuery1.fieldbyname('TD002').value;
+  ADOQuery10.Parameters.parambyname('s3').VALUE:=ADOQuery1.fieldbyname('TD003').value;
+  ADOQuery10.Parameters.parambyname('s4').VALUE:='510';
+  ADOQuery10.open;
+  ADOQuery10.first;
+  if ADOQuery10.recordcount>0 then
+    BEGIN
+      for i:=1 to ADOQuery10.recordcount do
+        begin
+          s[19]:=s[19]+ADOQuery10.fieldbyname('TA017').value;
+          ADOQuery10.next;
+        END;  
+    end;
+  Label81.caption:=FLOATTOSTR(S[19]);
+
+  ADOQuery7.close;                                                              //查製令實際領料
+  ADOQuery7.SQL.Clear;
+  ADOQuery7.SQL.add('select TA001,TA002,TB003,TB005,LB010,MB050,MB064,MB065,MB025,TA017');
+  ADOQuery7.sql.add('from MOCTA,MOCTB,INVLB,INVMB');
+  ADOQuery7.sql.add('WHERE TA026=:s1');
+  ADOQuery7.sql.add('AND TA027=:s2');
+  ADOQuery7.sql.add('AND TA028=:s3');
+  ADOQuery7.sql.add('AND TA001=TB001');
+  ADOQuery7.sql.add('AND TA002=TB002');
+  ADOQuery7.sql.add('AND TB003=LB001');
+  ADOQuery7.sql.add('AND LB002=:s4');
+  ADOQuery7.sql.add('AND TB003=MB001');
+  ADOQuery7.sql.add('AND MB025=:s5');                                           //排除自製件
+  ADOQuery7.sql.add('AND TA013=:s6');
+  ADOQuery7.sql.add('AND TA011>:s7');
+  ADOQuery7.sql.add('ORDER BY TB003');
+  ADOQuery7.Parameters.parambyname('s1').VALUE:=ADOQuery1.fieldbyname('TD001').value;
+  ADOQuery7.Parameters.parambyname('s2').VALUE:=ADOQuery1.fieldbyname('TD002').value;
+  ADOQuery7.Parameters.parambyname('s3').VALUE:=ADOQuery1.fieldbyname('TD003').value;
+  ADOQuery7.Parameters.parambyname('s4').VALUE:=ym;                             //前期庫存成本
+  ADOQuery7.Parameters.parambyname('s5').VALUE:='P';                            //排除自製件
+  ADOQuery7.Parameters.parambyname('s6').VALUE:='Y';                            //已確認工單
+  ADOQuery7.Parameters.parambyname('s7').VALUE:='3';                            //排除未完工工單
+  ADOQuery7.open;
+  ADOQuery7.first;
+
+  if ADOQuery7.recordcount> 0 then
+    begin
+      for i:=1 to ADOQuery7.recordcount do
+        begin
+          s[15]:=ADOQuery7.fieldbyname('LB010').value;                          //庫存成本
+          s[16]:=s[15]*ADOQuery7.fieldbyname('TB005').value;                    //庫存成本金額
+          s[17]:=ADOQuery7.fieldbyname('MB050').value;                          //最近進價
+          s[18]:=s[17]*ADOQuery7.fieldbyname('TB005').value;                    //最近進價金額
+          s[2]:=s[2]+s[16];                                                     //庫存成本金額合計(料)
+          s[3]:=s[3]+s[18];                                                     //最近進價金額合計(料)
+          ADOQuery7.next;
+        end;
+    end;
+
+  s[12]:=s[2]+s[14];                                                            //成本總金額-料+工+費
+  s[13]:=s[3]+s[14];                                                            //進價總金額-料+工+費
+  s[11]:=ADOQuery1.fieldbyname('TD012').value;
+
+  Label66.caption:=floattostrF((s[12]/s[5]),ffNumber,10,0);                     //成本總金額-料+工+費
+  Label67.caption:=floattostrf((s[12]/s[4]/s[5]/s[6]),ffNumber,7,2);            //USD單價料+工+費/w
+  Label68.caption:=floattostrF(((s[11]-(s[12]/s[5]))/s[11]*100),ffNumber,7,2);  //毛利率
+
+  Label70.caption:=floattostrF((s[13]/s[5]),ffNumber,10,0);                     //進價總金額-料+工+費
+  Label71.caption:=floattostrf((s[13]/s[4]/s[5]/s[6]),ffNumber,7,2);            //USD單價料+工+費/w
+  Label72.caption:=floattostrF(((s[11]-(s[13]/s[5]))/s[11]*100),ffNumber,7,2);  //毛利率
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  n,s:array [1..30] of real;
+  i,j,k,l,m,o,cellnum:integer;
+  s3,s2,s4,s5,s6,s7,s8,s9,s10,S11:real;
+  ym:string;
+begin
+  for i := 1 to 100 do
+    begin
+      for j :=0 to 10 do
+        begin
+          StringGrid1.cells[j,i]:='';
+        end;
+    end;
+
+  for i := 1 to 100 do
+    begin
+      for j :=0 to 10 do
+        begin
+          s1[i,J]:='';
+        end;
+    end;
+  s[1]:=0;
+  s[2]:=0;                                      //庫存成本金額合計(料)
+  s[3]:=0;                                      //最近進價金額合計(料)
+  s[4]:=strtofloat(copy(Edit6.text,8,3));       //模組w數
+  s[5]:=TC009;                                  //匯率
+  s[6]:=strtofloat(Edit7.text);                 //片數
+  s[7]:=strtofloat(Edit12.text);                //人工/pcs
+  s[8]:=strtofloat(Edit13.text);                //製費/pcs
+  s[9]:=0;                                      //CELL 瓦數
+  s[10]:=strtofloat(edit15.text);               //自訂cell 單價 USD/W
+//  s[11]:=ADOQuery1.fieldbyname('TD012').value;  //訂單金額
+  s[11]:=strtofloat(edit17.text);               //訂單金額
+  s[12]:=0;                                     //庫存成本金額合計(料+工+費)
+  s[13]:=0;                                     //最近進價金額合計(料+工+費)
+  s[14]:=(s[7]+s[8])*s[6];                      //(人工+製費)*pcs
+  s[15]:=0;                                     //庫存成本
+  s[16]:=0;                                     //庫存成本金額
+  s[17]:=0;                                     //最近進價
+  s[18]:=0;                                     //最近進價金額
+  s[19]:=strtofloat(edit18.text);               //自訂玻璃 單價 USD/pcs
+  s[20]:=strtofloat(edit20.text);               //自訂EVA 單價 USD/m2
+  s[21]:=strtofloat(edit19.text);               //自訂背板 單價 USD/m2
+  s[22]:=strtofloat(edit21.text);               //自訂J-box 單價 USD/pcs
+  s[23]:=strtofloat(edit22.text)/100+1;         //自訂cell 耗損率
+  s[24]:=strtofloat(edit23.text)/100+1;         //自訂玻璃 耗損率
+  s[25]:=strtofloat(edit24.text)/100+1;         //自訂EVA 耗損率
+  s[26]:=strtofloat(edit25.text)/100+1;         //自訂背板 耗損率
+  s[27]:=strtofloat(edit26.text)/100+1;         //自訂J-box 耗損率
+  s[28]:=0;
+  s[29]:=0;
+  s[30]:=0;
+
+  ym:=copy(datetostr(now),1,4)+copy(datetostr(now),6,2);
+  ym:=inttostr(strtoint(ym)-2);
+  ProgressBar1.max:=100;
+  ProgressBar1.position:=0;
+
+  StringGrid1.cells[1,0]:='元件品號';
+  StringGrid1.cells[2,0]:='組成用量';
+  StringGrid1.cells[3,0]:='底數';
+  StringGrid1.cells[4,0]:='需求量';
+  StringGrid1.cells[5,0]:='庫存成本';
+  StringGrid1.cells[6,0]:='庫存成本金額';
+  StringGrid1.cells[7,0]:='最近進價';
+  StringGrid1.cells[8,0]:='最近進價金額';
+
+  ADOQuery2.close;                                                              //查BOM表
+  ADOQuery2.SQL.Clear;
+  ADOQuery2.SQL.add('SELECT MD003,MD006,MD007');
+  ADOQuery2.sql.add('FROM BOMMD,BOMMC');
+  ADOQuery2.sql.add('WHERE MD001=:s1');
+  ADOQuery2.sql.add('AND MD001=MC001');
+  ADOQuery2.sql.add('AND MC016=:S2');
+  ADOQuery2.Parameters.parambyname('s1').VALUE:=Edit6.text;
+  ADOQuery2.Parameters.parambyname('s2').VALUE:='Y';
+  ADOQuery2.open;
+  if ADOQuery2.recordcount=0 then MessageBox(0,'無BOM 資料','Look',MB_OK);
+
+  if ADOQuery2.recordcount>0 then
+    begin
+      k:=ADOQuery2.recordcount+2;
+      l:=ADOQuery2.recordcount+8;
+      for i :=1 to ADOQuery2.recordcount do
+        begin
+          n[1]:=0;
+          n[2]:=0;
+          n[3]:=0;
+          n[1]:=ADOQuery2.fieldbyname('MD006').value;                           //組成用量
+          n[2]:=ADOQuery2.fieldbyname('MD007').value;                           //底數
+          n[3]:=strtofloat(Edit7.text);                                         //模組數量
+          n[4]:=n[1]/n[2]*n[3];                                                 //需求數量
+          StringGrid1.cells[0,i]:=inttostr(i);
+          StringGrid1.cells[1,i]:=ADOQuery2.fieldbyname('MD003').value;         //元件品號
+          StringGrid1.cells[2,i]:=floattostrf(n[1],ffNumber,7,0);               //組成用量
+          StringGrid1.cells[3,i]:=floattostrf(n[2],ffNumber,7,0);               //底數
+          StringGrid1.cells[4,i]:=floattostrf(n[4],ffNumber,7,2);               //需求數量
+
+          ADOQuery5.close;                                                      //查前期庫存成本、最近進價
+          ADOQuery5.SQL.Clear;
+          ADOQuery5.SQL.add('SELECT MB050,MB064,MB065,MB025,LB010');
+          ADOQuery5.sql.add('FROM INVMB,INVLB');
+          ADOQuery5.sql.add('WHERE MB001=:s1');
+          ADOQuery5.sql.add('AND MB001=LB001');
+          ADOQuery5.sql.add('AND LB002=:S2');
+          ADOQuery5.sql.add('ORDER BY LB002');
+          ADOQuery5.Parameters.parambyname('s1').VALUE:=ADOQuery2.fieldbyname('MD003').value;
+          ADOQuery5.Parameters.parambyname('s2').VALUE:=ym;
+          ADOQuery5.open;
+          if ADOQuery5.recordcount>0 then
+            BEGIN
+              if ADOQuery5.fieldbyname('MB064').value>0 then                    //庫存數量>0
+                begin
+                  s[15]:=ADOQuery5.fieldbyname('MB065').value/ADOQuery5.fieldbyname('MB064').value;
+                  s[16]:=n[4]*s[15];
+                end;
+              if ADOQuery5.fieldbyname('MB064').value=0 then                    //庫存數量=0
+                begin
+                  s[15]:=ADOQuery5.fieldbyname('LB010').value;
+                  s[16]:=(n[4]*s[15]);
+                end;
+              s[17]:=ADOQuery5.fieldbyname('MB050').value;
+              s[18]:=s[17]*n[4];
+              StringGrid1.cells[5,i]:=floattostrF(s[15],ffNumber,7,2);
+              StringGrid1.cells[6,i]:=floattostrF(s[16],ffNumber,10,2);
+              StringGrid1.cells[7,i]:=floattostrF(s[17],ffNumber,7,2);
+              StringGrid1.cells[8,i]:=floattostrF(s[18],ffNumber,10,2);
+            END;
+
+          ADOQuery3.close;                                                      //查BOM表
+          ADOQuery3.SQL.Clear;
+          ADOQuery3.SQL.add('SELECT MD003,MD006,MD007');
+          ADOQuery3.sql.add('FROM BOMMD,BOMMC');
+          ADOQuery3.sql.add('WHERE MD001=:s1');
+          ADOQuery3.sql.add('AND MD001=MC001');
+          ADOQuery3.sql.add('AND MC016=:S2');
+          ADOQuery3.Parameters.parambyname('s1').VALUE:=ADOQuery2.fieldbyname('MD003').value;
+          ADOQuery3.Parameters.parambyname('s2').VALUE:='Y';
+          ADOQuery3.open;
+          l:=l+ADOQuery3.recordcount;
+
+          if  ADOQuery3.recordcount>0 then
+            begin
+              for j := 1 to ADOQuery3.recordcount do
+                begin
+                  n[1]:=0;
+                  n[2]:=0;
+                  n[3]:=0;
+                  n[1]:=ADOQuery3.fieldbyname('MD006').value;                   //組成用量
+                  n[2]:=ADOQuery3.fieldbyname('MD007').value;                   //底數
+                  n[6]:=n[1]/n[2]*n[4];                                         //需求數量
+                  StringGrid1.cells[0,k]:=inttostr(k);
+                  StringGrid1.cells[1,k]:=ADOQuery3.fieldbyname('MD003').value; //元件品號      //cell 品號替換
+                  if (copy(ADOQuery3.fieldbyname('MD003').value,1,3)='4SC') and (cellchange=1) then StringGrid1.cells[9,k]:=copy(ADOQuery3.fieldbyname('MD003').value,1,8)+sc+copy(ADOQuery3.fieldbyname('MD003').value,11,2);
+                  StringGrid1.cells[2,k]:=floattostrF(n[1],ffNumber,7,0);       //組成用量
+                  StringGrid1.cells[3,k]:=floattostrF(n[2],ffNumber,7,0);       //底數
+                  StringGrid1.cells[4,k]:=floattostrF(n[6],ffNumber,7,2);       //需求數量
+
+                  ADOQuery5.close;                                              //查庫存成本、最近進價
+                  ADOQuery5.SQL.Clear;
+                  ADOQuery5.SQL.add('SELECT MB050,MB064,MB065,MB025,LB010');
+                  ADOQuery5.sql.add('FROM INVMB,INVLB');
+                  ADOQuery5.sql.add('WHERE MB001=:s1');
+                  ADOQuery5.sql.add('AND MB001=LB001');
+                  ADOQuery5.sql.add('AND LB002=:S2');
+                  ADOQuery5.sql.add('ORDER BY LB002');
+                  if (copy(ADOQuery3.fieldbyname('MD003').value,1,3)='4SC') and (cellchange=1) then ADOQuery5.Parameters.parambyname('s1').VALUE:=copy(ADOQuery3.fieldbyname('MD003').value,1,8)+sc+copy(ADOQuery3.fieldbyname('MD003').value,11,2);
+                  if (copy(ADOQuery3.fieldbyname('MD003').value,1,3)='4SC') and (cellchange<>1) then ADOQuery5.Parameters.parambyname('s1').VALUE:=ADOQuery3.fieldbyname('MD003').value;
+                  if (copy(ADOQuery3.fieldbyname('MD003').value,1,3)<>'4SC') then ADOQuery5.Parameters.parambyname('s1').VALUE:=ADOQuery3.fieldbyname('MD003').value;
+                  ADOQuery5.Parameters.parambyname('s2').VALUE:=ym;
+                  ADOQuery5.open;
+                  if ADOQuery5.recordcount>0 then
+                    BEGIN
+                      if (ADOQuery5.fieldbyname('MB025').value='P') then        //採購件
+                        begin
+                          if (ADOQuery5.fieldbyname('MB064').value>0) then
+                            begin
+                              s[15]:=ADOQuery5.fieldbyname('MB065').value/ADOQuery5.fieldbyname('MB064').value;
+                              s[16]:=s[15]*n[6];
+                            end;
+                          if (ADOQuery5.fieldbyname('MB064').value=0) then
+                            begin
+                              s[15]:=ADOQuery5.fieldbyname('LB010').value;
+                              s[16]:=s[15]*n[6];
+                            end;
+                          s[17]:=ADOQuery5.fieldbyname('MB050').value;
+                          s[18]:=s[17]*n[6];
+                          if (copy(ADOQuery3.fieldbyname('MD003').value,1,3)='4SC') then
+                            begin
+                              s[9]:=strtofloat(copy(ADOQuery3.fieldbyname('MD003').value,6,3))/100;   //CELL 瓦數
+                              StringGrid1.cells[9,k]:=floattoStrF((ADOQuery5.fieldbyname('MB065').value/ADOQuery5.fieldbyname('MB064').value/s[5]/s[9]),ffNumber,7,2);
+                              s[18]:=s[17]*n[6]*s[23];                  //加耗損
+                              if (s[10]>0) then
+                                begin
+                                  s[17]:=s[10]*s[5]*s[9];
+                                  s[18]:=s[17]*n[6]*s[23];                  //CELL價格替換最近進價金額累計
+                                end;
+                              Label83.caption:=floattostrf((ADOQuery5.fieldbyname('MB065').value/ADOQuery5.fieldbyname('MB064').value/s[5]/s[9]),ffNumber,7,2);
+                              Label84.caption:=floattostrf((s[17]/s[5]/s[9]),ffNumber,7,2);
+                            end;
+                          if (copy(ADOQuery3.fieldbyname('MD003').value,1,3)='4GA') then  //玻璃價格替換最近進價金額累計
+                            begin
+                              s[18]:=s[17]*n[6]*s[24];
+                              if (s[19]>0) then
+                                begin
+                                  s[17]:=s[19];
+                                  s[18]:=s[19]*n[6]*s[24];
+                                end;
+                            end;
+                          if (copy(ADOQuery3.fieldbyname('MD003').value,1,3)='4EV') then  //eva價格替換最近進價金額累計
+                            begin
+                              s[18]:=s[17]*n[6]*s[25];
+                              if (s[20]>0) then
+                                begin
+                                  s[17]:=s[20];
+                                  s[18]:=s[20]*n[6]*s[25];
+                                end;
+                            end;
+
+                          if (copy(ADOQuery3.fieldbyname('MD003').value,1,3)='4BS') then  //背板價格替換最近進價金額累計
+                            begin
+                              s[18]:=s[21]*n[6]*s[26];
+                              if (s[21]>0) then
+                                begin
+                                  s[17]:=s[21];
+                                  s[18]:=s[21]*n[6]*s[26];
+                                end;
+                            end;
+                          if (copy(ADOQuery3.fieldbyname('MD003').value,1,3)='4JB') then  //JBOX價格替換最近進價金額累計
+                            begin
+                              s[18]:=s[17]*n[6]*s[27];
+                              if (s[22]>0) then
+                                begin
+                                  s[17]:=s[22];
+                                  s[18]:=s[22]*n[6]*s[27];
+                                end;
+                            end;
+                          StringGrid1.cells[5,k]:=floattostrF(s[15],ffNumber,7,2);
+                          StringGrid1.cells[6,k]:=floattostrF(s[16],ffNumber,10,2);
+                          StringGrid1.cells[7,k]:=floattostrF(s[17],ffNumber,7,2);
+                          StringGrid1.cells[8,k]:=floattostrF(s[18],ffNumber,10,2);
+                          s[2]:=s[2]+s[16];                                     //庫存成本金額累計
+                          s[3]:=s[3]+s[18];                                     //最近進價金額累計
+                        end;
+                    END;
+
+                  k:=k+1;
+
+                  ADOQuery4.close;                                              //查BOM表 + 庫存成本、最近進價
+                  ADOQuery4.SQL.Clear;
+                  ADOQuery4.SQL.add('SELECT MD001,MD003,MD006,MD007,MB050,MB064,MB065,MB025,LB010');
+                  ADOQuery4.sql.add('FROM BOMMD,BOMMC,INVMB,INVLB');
+                  ADOQuery4.sql.add('WHERE MD001=:s1');
+                  ADOQuery4.sql.add('AND MD003=MB001');
+                  ADOQuery4.sql.add('AND LB001=MB001');
+                  ADOQuery4.sql.add('AND MD001=MC001');
+                  ADOQuery4.sql.add('AND LB002=:S2');
+                  ADOQuery4.sql.add('AND MC016=:S3');
+                  ADOQuery4.sql.add('ORDER BY LB002');
+                  ADOQuery4.Parameters.parambyname('s1').VALUE:=ADOQuery3.fieldbyname('MD003').value;
+                  ADOQuery4.Parameters.parambyname('s2').VALUE:=ym;
+                  ADOQuery4.Parameters.parambyname('s3').VALUE:='Y';
+                  ADOQuery4.open;
+                  ADOQuery4.FIRST;
+                  if ADOQuery4.recordcount>0 then
+                    begin
+                      for m:=1 to ADOQuery4.recordcount do
+                        begin
+                          n[1]:=0;
+                          n[2]:=0;
+                          n[1]:=ADOQuery4.fieldbyname('MD006').value;
+                          n[2]:=ADOQuery4.fieldbyname('MD007').value;
+                          n[9]:=n[1]/n[2]*n[6];
+                          StringGrid1.cells[0,l]:=inttostr(l);
+                          StringGrid1.cells[1,l]:=ADOQuery4.fieldbyname('MD003').value;
+                          StringGrid1.cells[2,l]:=floattostrf(n[1],ffNumber,7,0);
+                          StringGrid1.cells[3,l]:=floattostrf(n[2],ffNumber,7,0);
+                          StringGrid1.cells[4,l]:=floattostrf(n[9],ffNumber,7,2);
+                          if (ADOQuery4.fieldbyname('MB064').value>0) and (ADOQuery4.fieldbyname('MB025').value='P') then
+                            begin
+                              s[15]:=ADOQuery4.fieldbyname('MB065').value/ADOQuery4.fieldbyname('MB064').value;
+                              s[16]:=s[15]*n[9];
+                            end;
+                          if (ADOQuery4.fieldbyname('MB064').value=0) and (ADOQuery4.fieldbyname('MB025').value='P') then
+                            begin
+                              s[15]:=ADOQuery4.fieldbyname('LB010').value;
+                              s[16]:=s[15]*n[9];
+                            end;
+                          s[17]:=ADOQuery4.fieldbyname('MB050').value;
+                          s[18]:=s[17]*n[9];
+
+                          if (copy(ADOQuery4.fieldbyname('MD003').value,1,3)='4EV') then  //eva價格替換最近進價金額累計
+                            begin
+                              s[18]:=s[17]*n[6]*s[25];
+                              if (s[20]>0) then
+                                begin
+                                  s[17]:=s[20];
+                                  s[18]:=s[20]*n[6]*s[25];
+                                end;
+                            end;
+                          if (copy(ADOQuery4.fieldbyname('MD003').value,1,3)='4BS') then  //背板價格替換最近進價金額累計
+                            begin
+                              s[18]:=s[17]*n[6]*s[26];
+                              if (s[21]>0) then
+                                begin
+                                  s[17]:=s[21];
+                                  s[18]:=s[21]*n[6]*s[26];
+                                end;
+                            end;
+                          if (copy(ADOQuery4.fieldbyname('MD003').value,1,3)='4JB') then  //JBOX價格替換最近進價金額累計
+                            begin
+                              s[18]:=s[17]*n[6]*s[27];
+                              if (s[22]>0) then
+                                begin
+                                  s[17]:=s[22];
+                                  s[18]:=s[22]*n[6]*s[27];
+                                end;
+                            end;
+                          StringGrid1.cells[5,l]:=floattostrF(s[15],ffNumber,7,2);
+                          StringGrid1.cells[6,l]:=floattostrF(s[16],ffNumber,10,2);
+                          StringGrid1.cells[7,l]:=floattostrF(s[17],ffNumber,7,2);
+                          StringGrid1.cells[8,l]:=floattostrF(s[18],ffNumber,10,2);
+                          s[2]:=s[2]+s[16];
+                          s[3]:=s[3]+s[18];
+
+                          l:=l+1;
+                          ADOQuery4.next;
+                        end;
+                    end;
+                  ProgressBar1.position:=5*j+90*(i-1);
+                  ADOQuery3.next;
+                end;
+            end;
+          ADOQuery2.next;
+        end;
+    end;
+  ProgressBar1.position:=0;
+
+  StringGrid1.cells[5,l]:='總金額-料';
+  StringGrid1.cells[6,l]:=floattostrF(s[2],ffNumber,10,0);                      //總金額-料
+  StringGrid1.cells[8,l]:=floattostrF(s[3],ffNumber,10,0);
+  StringGrid1.cells[9,l]:='NTD';
+  l:=l+1;
+  StringGrid1.cells[5,l]:='每片單價-料';
+  StringGrid1.cells[6,l]:=floattostrf((s[2]/s[6]),ffNumber,7,0);                //單價/pcs -料
+  StringGrid1.cells[8,l]:=floattostrf((s[3]/s[6]),ffNumber,7,0);
+  StringGrid1.cells[9,l]:='NTD/pcs';
+  l:=l+1;
+  StringGrid1.cells[5,l]:='每W單價-料';
+  StringGrid1.cells[6,l]:=floattostrf((s[2]/s[4]/s[6]),ffNumber,7,0);           // NTD單價/w  -料
+  StringGrid1.cells[8,l]:=floattostrf((s[3]/s[4]/s[6]),ffNumber,7,0);
+  StringGrid1.cells[9,l]:='NTD/w';
+  l:=l+1;
+  StringGrid1.cells[5,l]:='每W單價-料';
+  StringGrid1.cells[6,l]:=floattostrf((s[2]/s[4]/s[5]/s[6]),ffNumber,7,2);      // USD單價/w -料
+  StringGrid1.cells[8,l]:=floattostrf((s[3]/s[4]/s[5]/s[6]),ffNumber,7,2);
+  StringGrid1.cells[9,l]:=ComboBox4.text+'/w';
+
+  s[12]:=s[2]+s[14];                                                            //成本總金額-料+工+費
+  s[13]:=s[3]+s[14];                                                            //進價總金額-料+工+費
+//  s[11]:=ADOQuery1.fieldbyname('TD012').value;
+
+  Label46.caption:=floattostrF((s[12]/s[5]),ffNumber,10,2);                     //成本總金額-料+工+費
+  Label24.caption:=floattostrf((s[12]/s[6]/s[5]),ffNumber,7,2);                 //單價料+工+費/pcs
+  Label26.caption:=floattostrf((s[12]/s[6]/s[4]/s[5]),ffNumber,7,2);            //單價料+工+費/w
+  Label77.caption:=floattostrF(((s[11]-(s[12]/s[5]))/s[11]*100),ffNumber,7,2);  //毛利率
+
+  Label44.caption:=floattostrF((s[13]/s[5]),ffNumber,10,2);
+  Label30.caption:=floattostrf((s[13]/s[6]/s[5]),ffNumber,7,2);
+  Label33.caption:=floattostrf((s[13]/s[6]/s[4]/s[5]),ffNumber,7,2);
+  Label78.caption:=floattostrF(((s[11]-(s[13]/s[5]))/s[11]*100),ffNumber,7,2);
+
+  Label58.caption:=floattostrF((s[12]/s[5]),ffNumber,10,0);                     //成本總金額-料+工+費
+  Label43.caption:=floattostrf((s[12]/s[4]/s[5]/s[6]),ffNumber,7,2);            //單價料+工+費/w
+
+  Label56.caption:=floattostrF((s[13]/s[5]),ffNumber,10,0);
+  Label52.caption:=floattostrf((s[13]/s[4]/s[5]/s[6]),ffNumber,7,2);
+
+  s[19]:=s[14]/s[6]/s[4]/s[5];
+  Label90.caption:=floattostrF(s[19],ffNumber,7,2);
+  Label91.caption:=floattostrf(s[19],ffNumber,7,2);
+
+  s[20]:=strtofloat(Label26.caption)-strtofloat(Label83.caption)-strtofloat(Label90.caption);
+  Label95.caption:=floattostrF(s[20],ffNumber,7,2);
+  s[20]:=strtofloat(Label33.caption)-strtofloat(Label84.caption)-strtofloat(Label91.caption);
+  Label96.caption:=floattostrf(s[20],ffNumber,7,2);
+
+  ADOQuery6.ACTIVE :=false;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+VAR
+  I,J,K:INTEGER;
+begin
+{
+  Edit4.text:='';
+  Edit5.text:='';
+
+  ADOQuery3.close;
+  ADOQuery3.SQL.Clear;
+  ADOQuery3.SQL.add('select TD001,TD002,TD003,TD004,TD008');                      //由訂單 撈品號、數量
+  ADOQuery3.sql.add('FROM COPTD');
+  ADOQuery3.sql.add('WHERE TD001=:s1');
+  ADOQuery3.sql.add('AND TD002=:s2');
+  ADOQuery3.sql.add('AND TD003=:s3');
+  ADOQuery3.Parameters.parambyname('s1').VALUE:=Edit1.text;
+  ADOQuery3.Parameters.parambyname('s2').VALUE:=Edit2.text;
+  ADOQuery3.Parameters.parambyname('s3').VALUE:=Edit3.text;
+  ADOQuery3.open;
+  if ADOQuery3.recordcount=1 then                                                 //有訂單
+    begin
+      Edit4.text:=ADOQuery3.fieldbyname('TD004').Value;
+      Edit5.text:=ADOQuery3.fieldbyname('TD008').Value;
+}                                                                                  //撈用料需求紀錄
+      ADOQuery6.close;
+      ADOQuery6.SQL.Clear;
+      ADOQuery6.SQL.add('SELECT AA001,AA002,AA003,AA004,AA005,AA006,AA007,AA008,AA009,AA010,AA011,MB002,MB003,MB004,AA012,AA013,AA014,AA015,AA016,AA017,Id,AA018,AA019,AA020');
+      ADOQuery6.sql.add('FROM COPAA,INVMB');
+      ADOQuery6.sql.add('WHERE AA001=:s1');
+      ADOQuery6.sql.add('AND AA002=:s2');
+      ADOQuery6.sql.add('AND AA003=:s3');
+      ADOQuery6.sql.add('AND AA005=MB001');
+      ADOQuery6.sql.add('order by AA004');
+//      ADOQuery6.sql.add('order by AA005');
+      ADOQuery6.Parameters.parambyname('s1').VALUE:=Edit1.text;
+      ADOQuery6.Parameters.parambyname('s2').VALUE:=Edit2.text;
+      ADOQuery6.Parameters.parambyname('s3').VALUE:=Edit3.text;
+      ADOQuery6.open;
+      ADOQuery6.first;
+      ProgressBar1.max:=ADOQuery6.RECORDCOUNT*10;
+      IF ADOQuery6.RECORDCOUNT>0 THEN                                                 //更新已請、加購量、庫存量、工單未領用量
+        BEGIN
+          for i:= 1 to ADOQuery6.RECORDCOUNT do
+            begin
+              Button6.CLICK;
+              ProgressBar1.position:=i*10;
+              ADOQuery6.next;
+            end;
+        end;
+      ProgressBar1.position:=0;
+      IF ADOQuery6.RECORDCOUNT=0 THEN                                                 //沒用料需求紀錄
+        BEGIN
+          Button1.CLICK;                                                              //展 BOM 用料計算
+          K:=1010;
+          ADOQuery5.close;
+          ADOQuery5.SQL.Clear;
+          ADOQuery5.SQL.add('SELECT Id');
+          ADOQuery5.sql.add('FROM COPAA');
+          ADOQuery5.sql.add('order by Id');
+          ADOQuery5.open;
+          ADOQuery5.last;
+          J:=0;
+          IF ADOQuery5.RECORDCOUNT>0 THEN J:=ADOQuery5.fieldbyname('Id').Value;
+          FOR I :=1 TO StringGrid1.ROWCOUNT DO
+            BEGIN
+              IF s1[I,6]='P' THEN
+                BEGIN
+{
+                  ADOQuery8.close;
+                  ADOQuery8.SQL.Clear;                                                //查詢品號用料需求紀錄
+                  ADOQuery8.SQL.add('select Id,AA001,AA002,AA003,AA005,AA006');
+                  ADOQuery8.sql.add('from COPAA');
+                  ADOQuery8.sql.add('WHERE AA001=:AA001');
+                  ADOQuery8.sql.add('AND AA002=:AA002');
+                  ADOQuery8.sql.add('AND AA003=:AA003');
+                  ADOQuery8.sql.add('AND AA005=:AA005');
+                  ADOQuery8.Parameters.ParamByName('AA001').Value:= Edit1.text;
+                  ADOQuery8.Parameters.ParamByName('AA002').Value:= Edit2.text;
+                  ADOQuery8.Parameters.ParamByName('AA003').Value:= Edit3.text;
+                  ADOQuery8.Parameters.ParamByName('AA005').Value:= s1[I,1];
+                  ADOQuery8.OPEN;
+}
+//                  IF ADOQuery8.RECORDCOUNT=0 THEN
+//                    BEGIN
+                      j:=j+1;
+                      ADOQuery2.close;
+                      ADOQuery2.SQL.Clear;                                                //寫入用料需求紀錄
+                      ADOQuery2.SQL.add('insert into COPAA (Id,AA001,AA002,AA003,AA004,AA005,AA006,AA007,AA008,AA009,AA016,AA018,AA019,AA020)');
+                      ADOQuery2.sql.add('values (:Id,:AA001,:AA002,:AA003,:AA004,:AA005,:AA006,:AA007,:AA008,:AA009,:AA016,:AA018,:AA019,:AA020)');
+                      ADOQuery2.Parameters.ParamByName('Id').Value:=j;
+                      ADOQuery2.Parameters.ParamByName('AA001').Value:= Edit1.text;
+                      ADOQuery2.Parameters.ParamByName('AA002').Value:= Edit2.text;
+                      ADOQuery2.Parameters.ParamByName('AA003').Value:= Edit3.text;
+                      ADOQuery2.Parameters.ParamByName('AA004').Value:= INTTOSTR(K);
+                      ADOQuery2.Parameters.ParamByName('AA005').Value:= s1[I,1];
+                      ADOQuery2.Parameters.ParamByName('AA006').Value:= STRTOFLOAT(s1[I,4]);
+                      ADOQuery2.Parameters.ParamByName('AA007').Value:= STRTOFLOAT(s1[I,5]);
+                      ADOQuery2.Parameters.ParamByName('AA008').Value:= STRTOFLOAT(s1[I,4]);
+                      ADOQuery2.Parameters.ParamByName('AA009').Value:= Label12.caption;
+                      ADOQuery2.Parameters.ParamByName('AA016').Value:= s1[I,7];
+                      ADOQuery2.Parameters.ParamByName('AA018').Value:= 0;
+                      ADOQuery2.Parameters.ParamByName('AA019').Value:= j;
+                      ADOQuery2.Parameters.ParamByName('AA020').Value:= STRTOFLOAT(s1[I,4]);
+                      ADOQuery2.ExecSQL;
+                      K:=K+10;
+//                    END;
+{
+                  IF ADOQuery8.RECORDCOUNT=1 THEN
+                    BEGIN
+                      ADOQuery2.close;
+                      ADOQuery2.SQL.Clear;                                                //品號重複更新用料需求紀錄
+                      ADOQuery2.SQL.add('UPDATE COPAA');
+                      ADOQuery2.sql.add('SET AA006=:AA006');
+                      ADOQuery2.sql.add('WHERE Id=:Id');
+                      ADOQuery2.Parameters.ParamByName('Id').Value:=ADOQuery8.fieldbyname('Id').value;
+                      ADOQuery2.Parameters.ParamByName('AA006').Value:= STRTOFLOAT(s1[I,4])+ADOQuery8.fieldbyname('AA006').value;
+                      ADOQuery2.ExecSQL;
+                    END;
+}
+                END;
+            END;
+          ADOQuery6.close;
+          ADOQuery6.SQL.Clear;
+          ADOQuery6.SQL.add('SELECT AA001,AA002,AA003,AA004,AA005,AA006,AA007,AA008,AA009,AA010,AA011,MB002,MB003,MB004,AA012,AA013,AA014,AA015,AA016,AA017,AA018,AA019,AA020,Id');
+          ADOQuery6.sql.add('FROM COPAA,INVMB');
+          ADOQuery6.sql.add('WHERE AA001=:s1');
+          ADOQuery6.sql.add('AND AA002=:s2');
+          ADOQuery6.sql.add('AND AA003=:s3');
+          ADOQuery6.sql.add('AND AA005=MB001');
+          ADOQuery6.sql.add('order by AA004');
+          ADOQuery6.Parameters.parambyname('s1').VALUE:=Edit1.text;
+          ADOQuery6.Parameters.parambyname('s2').VALUE:=Edit2.text;
+          ADOQuery6.Parameters.parambyname('s3').VALUE:=Edit3.text;
+          ADOQuery6.open;
+          ADOQuery6.first;
+          ProgressBar1.max:=ADOQuery6.RECORDCOUNT*10;
+          IF ADOQuery6.RECORDCOUNT>0 THEN                                                 //更新已請、加購量、庫存量、工單未領用量
+            BEGIN
+              for i:= 1 to ADOQuery6.RECORDCOUNT do
+                begin
+                  Button6.CLICK;
+                  ProgressBar1.position:=i*10;
+                  ADOQuery6.next;
+                end;
+            end;
+          ProgressBar1.position:=0;
+        end;
+      ADOQuery6.ACTIVE :=FALSE;
+      ADOQuery6.ACTIVE :=TRUE;
+      ADOQuery6.first;
+//    END;
+//  ADOQuery7.close;
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+VAR                                                                              //拋請購單
+  s:array [1..10] of string;
+  I,J:INTEGER;
+  i1,i2:real;
+begin
+//  i2:=1;                                                                         // 1% 加購率
+
+  if ADOQuery6.active=false then exit;
+
+  s[1]:=datetostr(now);                                                          //日期   2010/12/30
+  s[2]:=copy(s[1],1,4)+copy(s[1],6,2)+'0000';                                    //單號   2010120000
+  s[3]:=copy(s[1],1,4)+copy(s[1],6,2)+'0001';                                    //單號   2010120001
+  S[4]:=copy(s[1],1,4)+copy(s[1],6,2)+copy(s[1],9,2);                            //日期   20101230
+  S[5]:=Edit1.text+'-'+Edit2.text+'-'+Edit3.text;                                //訂單   222-2010120007-0001
+
+  ADOQuery3.close;
+  ADOQuery3.SQL.Clear;
+  ADOQuery3.SQL.add('SELECT TA002');
+  ADOQuery3.sql.add('FROM PURTA');
+  ADOQuery3.sql.add('WHERE TA001=:s1');
+  ADOQuery3.sql.add('AND TA002>:s2');
+  ADOQuery3.sql.add('ORDER BY TA002');
+  ADOQuery3.Parameters.parambyname('s1').VALUE:='310';
+  ADOQuery3.Parameters.parambyname('s2').VALUE:=s[2];
+  ADOQuery3.open;
+  ADOQuery3.LAST;
+
+  IF ADOQuery3.RECORDCOUNT>0 THEN
+    BEGIN
+      i1:=ADOQuery3.fieldbyname('TA002').asfloat+1;                               //找出新單號
+      s[3]:=floattoStr(i1);
+    END;
+
+  Label14.caption:='310';
+  Label15.caption:=s[3];
+  Button5.click;  
+
+  ADOQuery2.close;                                                                //寫入請購單頭
+  ADOQuery2.SQL.Clear;
+  ADOQuery2.SQL.add('insert into PURTA (COMPANY,CREATOR,USR_GROUP,CREATE_DATE,FLAG,TA001,TA002,TA013,TA004,TA005,TA006,TA007,TA008,TA009,TA010,TA011,TA012,TA015,TA016,TA017,TA020,TA021,TA022,TA023,TA024,TA551)');
+  ADOQuery2.sql.add('values (:COMPANY,:CREATOR,:USR_GROUP,:CREATE_DATE,:FLAG,:TA001,:TA002,:TA013,:TA004,:TA005,:TA006,:TA007,:TA008,:TA009,:TA010,:TA011,:TA012,:TA015,:TA016,:TA017,:TA020,:TA021,:TA022,:TA023,:TA024,:TA551)');
+  ADOQuery2.Parameters.ParamByName('COMPANY').Value:='KINMAC';
+  ADOQuery2.Parameters.ParamByName('CREATOR').Value:='070144';
+  ADOQuery2.Parameters.ParamByName('USR_GROUP').Value:='L000';
+  ADOQuery2.Parameters.ParamByName('CREATE_DATE').Value:=s[4];
+  ADOQuery2.Parameters.ParamByName('FLAG').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA001').Value:='310';
+  ADOQuery2.Parameters.ParamByName('TA002').Value:=s[3];
+  ADOQuery2.Parameters.ParamByName('TA013').Value:=s[4];
+  ADOQuery2.Parameters.ParamByName('TA004').Value:='L100';
+  ADOQuery2.Parameters.ParamByName('TA005').Value:='';
+  ADOQuery2.Parameters.ParamByName('TA006').Value:=s[5];
+  ADOQuery2.Parameters.ParamByName('TA007').Value:='N';
+  ADOQuery2.Parameters.ParamByName('TA008').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA009').Value:='9';
+  ADOQuery2.Parameters.ParamByName('TA010').Value:='01';
+  ADOQuery2.Parameters.ParamByName('TA011').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA012').Value:='070144' ;
+  ADOQuery2.Parameters.ParamByName('TA015').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA016').Value:='N';
+  ADOQuery2.Parameters.ParamByName('TA017').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA020').Value:='0' ;
+  ADOQuery2.Parameters.ParamByName('TA021').Value:='0000' ;
+  ADOQuery2.Parameters.ParamByName('TA022').Value:='';
+  ADOQuery2.Parameters.ParamByName('TA023').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA024').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA551').Value:='0';
+  ADOQuery2.ExecSQL;
+
+  ADOQuery6.FIRST;
+  J:=1001;
+  FOR I:= 1 TO ADOQuery6.RECORDCOUNT DO
+    BEGIN
+      if (ADOQuery6.fieldbyname('AA008').value>0)  and (ADOQuery6.fieldbyname('AA008').value<= (ADOQuery6.fieldbyname('AA006').value-ADOQuery6.fieldbyname('AA012').value)) then
+//      if (ADOQuery6.fieldbyname('AA008').value>0) then
+        begin
+{
+          ADOQuery3.close;                                                       //強制作廢原請購單
+          ADOQuery3.SQL.Clear;
+          ADOQuery3.sql.add('UPDATE PURTA');
+          ADOQuery3.sql.add('SET TA007=:S3');
+          ADOQuery3.sql.add('WHERE TA001=:s1');
+          ADOQuery3.sql.add('AND TA002=:s2');
+          ADOQuery3.Parameters.parambyname('s1').VALUE:='310';
+          ADOQuery3.Parameters.parambyname('s2').VALUE:=ADOQuery6.fieldbyname('AA013').value;
+          ADOQuery3.Parameters.parambyname('s3').VALUE:='V';
+          ADOQuery3.ExecSQL;
+}
+          ADOQuery2.close;
+          ADOQuery2.SQL.Clear;                                                    //寫入請購單身
+          ADOQuery2.SQL.add('insert into PURTB (COMPANY,CREATOR,USR_GROUP,CREATE_DATE,FLAG,TB001,TB002,TB003,TB004,TB005,TB006,TB007,TB008,TB009,TB010,TB011,TB012,TB014,TB015,TB020,TB021,TB025,TB032,TB039,TB040,TB042,TB046,TB029,TB030,TB031)');
+          ADOQuery2.sql.add('values (:COMPANY,:CREATOR,:USR_GROUP,:CREATE_DATE,:FLAG,:TB001,:TB002,:TB003,:TB004,:TB005,:TB006,:TB007,:TB008,:TB009,:TB010,:TB011,:TB012,:TB014,:TB015,:TB020,:TB021,:TB025,:TB032,:TB039,:TB040,:TB042,:TB046,:TB029,:TB030,:TB031)');
+          ADOQuery2.Parameters.ParamByName('COMPANY').Value:='KINMAC';
+          ADOQuery2.Parameters.ParamByName('CREATOR').Value:='070144';
+          ADOQuery2.Parameters.ParamByName('USR_GROUP').Value:='L000';
+          ADOQuery2.Parameters.ParamByName('CREATE_DATE').Value:=s[4];
+          ADOQuery2.Parameters.ParamByName('FLAG').Value:='0';
+          ADOQuery2.Parameters.ParamByName('TB001').Value:='310';
+          ADOQuery2.Parameters.ParamByName('TB002').Value:=s[3];
+          ADOQuery2.Parameters.ParamByName('TB003').Value:=J;
+          ADOQuery2.Parameters.ParamByName('TB004').Value:=ADOQuery6.fieldbyname('AA005').value;   //品號
+          ADOQuery2.Parameters.ParamByName('TB005').Value:=ADOQuery6.fieldbyname('MB002').value;   //品名
+          ADOQuery2.Parameters.ParamByName('TB006').Value:=ADOQuery6.fieldbyname('MB003').value;   //規格
+          ADOQuery2.Parameters.ParamByName('TB007').Value:=ADOQuery6.fieldbyname('MB004').value;   //請購單位
+          ADOQuery2.Parameters.ParamByName('TB008').Value:='110';
+          ADOQuery2.Parameters.ParamByName('TB009').Value:=ADOQuery6.fieldbyname('AA008').value;   //請購數量
+          ADOQuery2.Parameters.ParamByName('TB010').Value:='';
+          ADOQuery2.Parameters.ParamByName('TB011').Value:=ADOQuery6.fieldbyname('AA009').value;   //需求日期
+          ADOQuery2.Parameters.ParamByName('TB012').Value:='';
+          ADOQuery2.Parameters.ParamByName('TB014').Value:=ADOQuery6.fieldbyname('AA008').value;
+          ADOQuery2.Parameters.ParamByName('TB015').Value:=ADOQuery6.fieldbyname('MB004').value;
+          ADOQuery2.Parameters.ParamByName('TB020').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB021').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB025').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB032').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB039').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB040').Value:='1';
+          ADOQuery2.Parameters.ParamByName('TB042').Value:='2';
+          ADOQuery2.Parameters.ParamByName('TB046').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB029').Value:=ADOQuery6.fieldbyname('AA001').value;
+          ADOQuery2.Parameters.ParamByName('TB030').Value:=ADOQuery6.fieldbyname('AA002').value;
+          ADOQuery2.Parameters.ParamByName('TB031').Value:=ADOQuery6.fieldbyname('Id').value;
+          ADOQuery2.ExecSQL;
+{
+          ADOQuery2.close;
+          ADOQuery2.SQL.Clear;                                                    //回寫已請購量
+          ADOQuery2.SQL.add('UPDATE COPAA');
+          ADOQuery2.sql.add('SET AA012=:AA012');
+          ADOQuery2.sql.add('WHERE Id=:Id');
+          ADOQuery2.Parameters.ParamByName('Id').Value:=ADOQuery6.fieldbyname('Id').value;
+          ADOQuery2.Parameters.ParamByName('AA012').Value:=ADOQuery6.fieldbyname('AA008').value+ADOQuery6.fieldbyname('AA012').value;
+          ADOQuery2.ExecSQL;
+}
+          J:=J+1;
+        end;
+      ADOQuery6.NEXT;
+    END;
+{
+  ADOQuery3.close;
+  ADOQuery3.SQL.Clear;
+  ADOQuery3.SQL.add('SELECT TA002');
+  ADOQuery3.sql.add('FROM PURTA');
+  ADOQuery3.sql.add('WHERE TA001=:s1');
+  ADOQuery3.sql.add('AND TA002>:s2');
+  ADOQuery3.sql.add('ORDER BY TA002');
+  ADOQuery3.Parameters.parambyname('s1').VALUE:='312';
+  ADOQuery3.Parameters.parambyname('s2').VALUE:=s[2];
+  ADOQuery3.open;
+  ADOQuery3.LAST;
+
+  IF ADOQuery3.RECORDCOUNT>0 THEN
+    BEGIN
+      i1:=ADOQuery3.fieldbyname('TA002').asfloat+1;                               //找出單號
+      s[3]:=floattoStr(i1);
+    END;
+
+  ADOQuery2.close;                                                                //寫入請購單頭
+  ADOQuery2.SQL.Clear;
+  ADOQuery2.SQL.add('insert into PURTA (COMPANY,CREATOR,USR_GROUP,CREATE_DATE,FLAG,TA001,TA002,TA013,TA004,TA005,TA006,TA007,TA008,TA009,TA010,TA011,TA012,TA015,TA016,TA017,TA020,TA021,TA022,TA023,TA024,TA551)');
+  ADOQuery2.sql.add('values (:COMPANY,:CREATOR,:USR_GROUP,:CREATE_DATE,:FLAG,:TA001,:TA002,:TA013,:TA004,:TA005,:TA006,:TA007,:TA008,:TA009,:TA010,:TA011,:TA012,:TA015,:TA016,:TA017,:TA020,:TA021,:TA022,:TA023,:TA024,:TA551)');
+  ADOQuery2.Parameters.ParamByName('COMPANY').Value:='KINMAC';
+  ADOQuery2.Parameters.ParamByName('CREATOR').Value:='070144';
+  ADOQuery2.Parameters.ParamByName('USR_GROUP').Value:='L000';
+  ADOQuery2.Parameters.ParamByName('CREATE_DATE').Value:=s[4];
+  ADOQuery2.Parameters.ParamByName('FLAG').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA001').Value:='312';
+  ADOQuery2.Parameters.ParamByName('TA002').Value:=s[3];
+  ADOQuery2.Parameters.ParamByName('TA013').Value:=s[4];
+  ADOQuery2.Parameters.ParamByName('TA004').Value:='L100';
+  ADOQuery2.Parameters.ParamByName('TA005').Value:='';
+  ADOQuery2.Parameters.ParamByName('TA006').Value:=s[5];
+  ADOQuery2.Parameters.ParamByName('TA007').Value:='N';
+  ADOQuery2.Parameters.ParamByName('TA008').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA009').Value:='9';
+  ADOQuery2.Parameters.ParamByName('TA010').Value:='01';
+  ADOQuery2.Parameters.ParamByName('TA011').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA012').Value:='070144' ;
+  ADOQuery2.Parameters.ParamByName('TA015').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA016').Value:='N';
+  ADOQuery2.Parameters.ParamByName('TA017').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA020').Value:='0' ;
+  ADOQuery2.Parameters.ParamByName('TA021').Value:='0000' ;
+  ADOQuery2.Parameters.ParamByName('TA022').Value:='';
+  ADOQuery2.Parameters.ParamByName('TA023').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA024').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA551').Value:='0';
+  ADOQuery2.ExecSQL;
+
+  ADOQuery6.FIRST;
+  J:=1001;
+  FOR I:= 1 TO ADOQuery6.RECORDCOUNT DO
+    BEGIN
+//      if (ADOQuery6.fieldbyname('AA010').value>0)  and (ADOQuery6.fieldbyname('AA011').value<= i2)then    //有數量 且比例<可加購率
+      if (ADOQuery6.fieldbyname('AA010').value>0) then                           //有數量
+        begin
+
+          ADOQuery3.close;                                                      //強制作廢原請購單
+          ADOQuery3.SQL.Clear;
+          ADOQuery3.sql.add('UPDATE PURTA');
+          ADOQuery3.sql.add('SET TA007=:S3');
+          ADOQuery3.sql.add('WHERE TA001=:s1');
+          ADOQuery3.sql.add('AND TA002=:s2');
+          ADOQuery3.Parameters.parambyname('s1').VALUE:='312';
+          ADOQuery3.Parameters.parambyname('s2').VALUE:=ADOQuery6.fieldbyname('AA017').value;;
+          ADOQuery3.Parameters.parambyname('s3').VALUE:='V';
+          ADOQuery3.ExecSQL;
+
+          ADOQuery2.close;
+          ADOQuery2.SQL.Clear;                                                    //寫入請購單身
+          ADOQuery2.SQL.add('insert into PURTB (COMPANY,CREATOR,USR_GROUP,CREATE_DATE,FLAG,TB001,TB002,TB003,TB004,TB005,TB006,TB007,TB008,TB009,TB010,TB011,TB012,TB014,TB015,TB020,TB021,TB025,TB032,TB039,TB040,TB042,TB046)');
+          ADOQuery2.sql.add('values (:COMPANY,:CREATOR,:USR_GROUP,:CREATE_DATE,:FLAG,:TB001,:TB002,:TB003,:TB004,:TB005,:TB006,:TB007,:TB008,:TB009,:TB010,:TB011,:TB012,:TB014,:TB015,:TB020,:TB021,:TB025,:TB032,:TB039,:TB040,:TB042,:TB046)');
+          ADOQuery2.Parameters.ParamByName('COMPANY').Value:='KINMAC';
+          ADOQuery2.Parameters.ParamByName('CREATOR').Value:='070144';
+          ADOQuery2.Parameters.ParamByName('USR_GROUP').Value:='L000';
+          ADOQuery2.Parameters.ParamByName('CREATE_DATE').Value:=s[4];
+          ADOQuery2.Parameters.ParamByName('FLAG').Value:='0';
+          ADOQuery2.Parameters.ParamByName('TB001').Value:='312';
+          ADOQuery2.Parameters.ParamByName('TB002').Value:=s[3];
+          ADOQuery2.Parameters.ParamByName('TB003').Value:=J;
+          ADOQuery2.Parameters.ParamByName('TB004').Value:=ADOQuery6.fieldbyname('AA005').value;   //品號
+          ADOQuery2.Parameters.ParamByName('TB005').Value:=ADOQuery6.fieldbyname('MB002').value;   //品名
+          ADOQuery2.Parameters.ParamByName('TB006').Value:=ADOQuery6.fieldbyname('MB003').value;   //規格
+          ADOQuery2.Parameters.ParamByName('TB007').Value:=ADOQuery6.fieldbyname('MB004').value;   //請購單位
+          ADOQuery2.Parameters.ParamByName('TB008').Value:='110';
+          ADOQuery2.Parameters.ParamByName('TB009').Value:=ADOQuery6.fieldbyname('AA010').value;   //加購數量
+          ADOQuery2.Parameters.ParamByName('TB010').Value:='';
+          ADOQuery2.Parameters.ParamByName('TB011').Value:=ADOQuery6.fieldbyname('AA009').value;   //需求日期
+          ADOQuery2.Parameters.ParamByName('TB012').Value:='';
+          ADOQuery2.Parameters.ParamByName('TB014').Value:=ADOQuery6.fieldbyname('AA010').value;
+          ADOQuery2.Parameters.ParamByName('TB015').Value:=ADOQuery6.fieldbyname('MB004').value;
+          ADOQuery2.Parameters.ParamByName('TB020').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB021').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB025').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB032').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB039').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB040').Value:='1';
+          ADOQuery2.Parameters.ParamByName('TB042').Value:='2';
+          ADOQuery2.Parameters.ParamByName('TB046').Value:='N';
+          ADOQuery2.ExecSQL;
+
+          ADOQuery2.close;
+          ADOQuery2.SQL.Clear;                                                    //回寫請購單別、單號、序號
+          ADOQuery2.SQL.add('UPDATE COPAA');
+          ADOQuery2.sql.add('SET AA016=:AA016,AA017=:AA017,AA018=:AA018,AA019=:AA019');
+          ADOQuery2.sql.add('WHERE Id=:Id');
+          ADOQuery2.Parameters.ParamByName('Id').Value:=ADOQuery6.fieldbyname('Id').value;
+          ADOQuery2.Parameters.ParamByName('AA016').Value:='312';
+          ADOQuery2.Parameters.ParamByName('AA017').Value:=s[3];
+          ADOQuery2.Parameters.ParamByName('AA018').Value:=J;
+          ADOQuery2.Parameters.ParamByName('AA019').Value:='N';
+          ADOQuery2.ExecSQL;
+
+          J:=J+1;
+        end;
+      ADOQuery6.NEXT;
+    END;
+}
+//  ADOQuery6.active:=false;
+//  ADOQuery6.active:=true;
+    button2.click;
+    ADOQuery7.close;
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+VAR
+  asheet:variant;
+  i,j:INTEGER;
+begin
+  ExcelApplication1.Visible[0]:=true;
+  ExcelApplication1.Workbooks.Add(xlwbatworksheet,0);
+  asheet:= ExcelApplication1.Worksheets.Item[1];
+  FOR i := 0 to StringGrid1.RowCount do
+    begin
+      for j := 0 to StringGrid1.colCount  do
+        begin
+          asheet.cells[i+1,j+1].value:=StringGrid1.Cells[j,i];
+        end;
+    end;
+end;
+
+procedure TForm1.Edit3Change(Sender: TObject);
+begin
+//  button2.click;
+end;
+
+procedure TForm1.DataSource2DataChange(Sender: TObject; Field: TField);
+begin
+  if TDataSource(Sender).DataSet.Eof then TDataSource(Sender).DataSet.Cancel;     //防止按下增加ㄧ筆紀錄
+end;
+
+procedure TForm1.DBGrid2DrawColumnCell(Sender: TObject; const Rect: TRect;        //請購量、庫存量、加購比例計算、檢查
+  DataCol: Integer; Column: TColumn; State: TGridDrawState);
+var
+  i,j:real;
+begin
+  if ADOQuery6.active=false then exit;
+  if ADOQuery6.RECORDCOUNT=0 then exit;
+  i:=strtofloat(Edit8.text);                                                                 //預設加購比例
+  if (ADOQuery6.FieldByName('AA006').Asfloat)>0 then j:=ADOQuery6.FieldByName('AA010').Asfloat/ADOQuery6.FieldByName('AA006').Asfloat*100;      //加購比例計算
+  Label9.caption:=floattostr(j);
+  if ADOQuery6.FieldByName('AA007').Asfloat > ADOQuery6.FieldByName('AA006').Asfloat then    //請購量、庫存量檢查
+     DBGrid2.Canvas.Font.Color := clBlue;
+  if ADOQuery6.FieldByName('AA008').Asfloat > ADOQuery6.FieldByName('AA006').Asfloat then    //請購量、需求量檢查
+     DBGrid2.Canvas.Font.Color := clRed;
+  if ADOQuery6.FieldByName('AA011').Asfloat > i then                                         //加購比例檢查
+     DBGrid2.Canvas.Font.Color := clRed;
+  if ADOQuery6.FieldByName('AA014').Asfloat > i then                                         //加購比例檢查
+     DBGrid2.Canvas.Font.Color := clRed;
+  if j > i then                                                                              //加購比例檢查
+     DBGrid2.Canvas.Font.Color := clRed;
+  DBGrid2.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+end;
+
+procedure TForm1.Button5Click(Sender: TObject);                                  //原物料需求明細請購列印
+begin
+
+  ADOQuery9.close;                                                               //撈請購量>0 用料需求紀錄
+  ADOQuery9.SQL.Clear;
+  ADOQuery9.SQL.add('SELECT AA001,AA002,AA003,AA004,AA005,AA006,AA007,AA008,AA009,AA010,AA011,MB002,MB003,MB004,AA012,AA013,AA014,AA015,AA016,Id');
+  ADOQuery9.sql.add('FROM COPAA,INVMB');
+  ADOQuery9.sql.add('WHERE AA001=:s1');
+  ADOQuery9.sql.add('AND AA002=:s2');
+  ADOQuery9.sql.add('AND AA003=:s3');
+  ADOQuery9.sql.add('AND AA005=MB001');
+  ADOQuery9.sql.add('AND AA008>:s4');
+  ADOQuery9.sql.add('order by AA004');
+  ADOQuery9.Parameters.parambyname('s1').VALUE:=Edit1.text;
+  ADOQuery9.Parameters.parambyname('s2').VALUE:=Edit2.text;
+  ADOQuery9.Parameters.parambyname('s3').VALUE:=Edit3.text;
+  ADOQuery9.Parameters.parambyname('s4').VALUE:='0';
+  ADOQuery9.open;
+  ADOQuery9.first;
+
+  qr4.QRLabel5.caption:=Edit1.text;
+  qr4.QRLabel7.caption:=Edit2.text;
+  qr4.QRLabel8.caption:=Edit3.text;
+  qr4.QRLabel15.caption:=Edit4.text;
+  qr4.QRLabel16.caption:=Edit5.text;
+  qr4.QRLabel22.caption:=Label11.caption;
+  qr4.QRLabel19.caption:=Label10.caption;
+  qr4.QRLabel24.caption:=Label14.caption;
+  qr4.QRLabel26.caption:=Label15.caption;
+  qr4.preview;
+end;
+
+procedure TForm1.StringGrid1DrawCell(Sender: TObject; ACol, ARow: Integer;           
+  Rect: TRect; State: TGridDrawState);
+begin
+    with   StringGrid1   do
+      begin
+        if (ACol>1) and (ARow>0) and (Cells[ACol,ARow]<>'') then
+          begin
+            Canvas.FillRect(Rect);
+            DrawText(Canvas.Handle,PChar(Cells[ACol,ARow]),Length(Cells[ACol,ARow]),Rect,2); //數字靠右
+          end;
+        if (ACol=0) OR (ARow=0) and (Cells[ACol,ARow]<>'') then
+          begin
+            Canvas.FillRect(Rect);
+            DrawText(Canvas.Handle,PChar(Cells[ACol,ARow]),Length(Cells[ACol,ARow]),Rect,1 or DT_SINGLELINE or 4); //文字居中
+          end;
+      end;
+end;
+
+procedure TForm1.Button6Click(Sender: TObject);                                    //更新已請購、加購量
+var
+  i,j,o:integer;
+  m,n:real;
+begin
+  if copy(ADOQuery6.fieldbyname('AA005').value,1,3)='4SC' then                   //查同瓦數CELL庫存加總  2011.02.18
+    begin
+      ADOQuery5.close;
+      ADOQuery5.SQL.Clear;
+      ADOQuery5.SQL.add('SELECT MC007,MB025');
+      ADOQuery5.sql.add('FROM INVMC,INVMB');
+      ADOQuery5.sql.add('WHERE MC001>=:s1');
+      ADOQuery5.sql.add('AND MC001<:s3');
+      ADOQuery5.sql.add('AND MC002=:s2');
+      ADOQuery5.sql.add('AND MC001=MB001');
+      ADOQuery5.Parameters.parambyname('s1').VALUE:=copy(ADOQuery6.fieldbyname('AA005').value,1,8)+'0000';
+      ADOQuery5.Parameters.parambyname('s2').VALUE:='110';
+      ADOQuery5.Parameters.parambyname('s3').VALUE:=copy(ADOQuery6.fieldbyname('AA005').value,1,8)+'9999';
+      ADOQuery5.open;
+      if ADOQuery5.recordcount>0 then
+        BEGIN
+          ADOQuery5.first;
+          m:=0;
+          for o:=1 to ADOQuery5.recordcount do
+            begin
+              m:=m+ADOQuery5.fieldbyname('MC007').value;
+              ADOQuery5.next;
+            end;
+        END;
+      ADOQuery5.close;                                                               //查工單未領用量
+      ADOQuery5.SQL.Clear;
+      ADOQuery5.SQL.add('SELECT TB001,TB002,TB003,TB004,TB005');
+      ADOQuery5.sql.add('FROM MOCTA,MOCTB');
+      ADOQuery5.sql.add('WHERE TB003>=:s1');
+      ADOQuery5.sql.add('AND TB003<=:s3');
+      ADOQuery5.sql.add('AND TA001=TB001');
+      ADOQuery5.sql.add('AND TA002=TB002');
+      ADOQuery5.sql.add('AND TB004>TB005');
+      ADOQuery5.sql.add('AND TA013=:s2');
+      ADOQuery5.sql.add('AND TA011<:s4');
+      ADOQuery5.Parameters.parambyname('s1').VALUE:=copy(ADOQuery6.fieldbyname('AA005').value,1,8)+'0000';
+      ADOQuery5.Parameters.parambyname('s2').VALUE:='Y';
+      ADOQuery5.Parameters.parambyname('s3').VALUE:=copy(ADOQuery6.fieldbyname('AA005').value,1,8)+'9999';
+      ADOQuery5.Parameters.parambyname('s4').VALUE:=4;
+      ADOQuery5.open;
+        if ADOQuery5.recordcount>0 then
+          BEGIN
+            ADOQuery5.first;
+            n:=0;
+            for o:=1 to ADOQuery5.recordcount do
+              begin
+                n:=n+ADOQuery5.fieldbyname('TB004').value-ADOQuery5.fieldbyname('TB005').value;
+                ADOQuery5.next;
+              end;
+          END;
+    end
+  else
+    begin
+      ADOQuery5.close;                                                           //查庫存
+      ADOQuery5.SQL.Clear;
+      ADOQuery5.SQL.add('SELECT MC007,MB025');
+      ADOQuery5.sql.add('FROM INVMC,INVMB');
+      ADOQuery5.sql.add('WHERE MC001=:s1');
+      ADOQuery5.sql.add('AND MC002=:s2');
+      ADOQuery5.sql.add('AND MC001=MB001');
+      ADOQuery5.Parameters.parambyname('s1').VALUE:=ADOQuery6.fieldbyname('AA005').value;
+      ADOQuery5.Parameters.parambyname('s2').VALUE:='110';
+      ADOQuery5.open;
+      if ADOQuery5.recordcount>0 then
+        BEGIN
+          m:=ADOQuery5.fieldbyname('MC007').value;
+        END;
+
+      ADOQuery5.close;                                                               //查工單未領用量
+      ADOQuery5.SQL.Clear;
+      ADOQuery5.SQL.add('SELECT TB001,TB002,TB003,TB004,TB005');
+      ADOQuery5.sql.add('FROM MOCTA,MOCTB');
+      ADOQuery5.sql.add('WHERE TB003=:s1');
+      ADOQuery5.sql.add('AND TA001=TB001');
+      ADOQuery5.sql.add('AND TA002=TB002');
+      ADOQuery5.sql.add('AND TB004>TB005');
+      ADOQuery5.sql.add('AND TA013=:s2');
+      ADOQuery5.sql.add('AND TA011<:s3');
+      ADOQuery5.Parameters.parambyname('s1').VALUE:=ADOQuery6.fieldbyname('AA005').value;
+      ADOQuery5.Parameters.parambyname('s2').VALUE:='Y';
+      ADOQuery5.Parameters.parambyname('s3').VALUE:=4;
+      ADOQuery5.open;
+        if ADOQuery5.recordcount>0 then
+          BEGIN
+            ADOQuery5.first;
+            n:=0;
+            for o:=1 to ADOQuery5.recordcount do
+              begin
+                n:=n+ADOQuery5.fieldbyname('TB004').value-ADOQuery5.fieldbyname('TB005').value;
+                ADOQuery5.next;
+              end;
+          END;
+    end;
+                                                                                 //即時更新庫存數量、工單未領用量
+  ADOQuery7.close;
+  ADOQuery7.SQL.Clear;
+  ADOQuery7.SQL.add('update COPAA');
+  ADOQuery7.sql.add('SET AA007=:AA007,AA015=:AA015');
+  ADOQuery7.sql.add('WHERE Id=:Id');
+  ADOQuery7.Parameters.parambyname('AA007').VALUE:=m;
+  ADOQuery7.Parameters.parambyname('AA015').VALUE:=n;
+  ADOQuery7.Parameters.parambyname('Id').VALUE:=ADOQuery6.fieldbyname('Id').value;
+  ADOQuery7.ExecSQL;
+
+  m:=0;
+  n:=0;
+
+  ADOQuery7.close;                                                               //查詢請購單
+  ADOQuery7.SQL.Clear;
+  ADOQuery7.SQL.add('SELECT TB001,TB002,TB003,TB004,TB005,TB006,TB009,TB025,TB029,TB030,TB031');
+  ADOQuery7.sql.add('FROM PURTB');
+  ADOQuery7.sql.add('WHERE TB031=:s1');
+  ADOQuery7.sql.add('and TB025<>:s2');
+  ADOQuery7.sql.add('and TB001=:s3');
+  ADOQuery7.Parameters.parambyname('s1').VALUE:=ADOQuery6.fieldbyname('Id').value;
+  ADOQuery7.Parameters.parambyname('s2').VALUE:='V';
+  ADOQuery7.Parameters.parambyname('s3').VALUE:='310';
+  ADOQuery7.open;
+  ADOQuery7.first;
+  if ADOQuery7.recordcount > 0 then
+  begin
+    for i:= 1 to ADOQuery7.recordcount do
+      begin
+        m:=m+ADOQuery7.FieldByName('TB009').value;                                //計算已請購量
+        ADOQuery7.next;
+      end;
+  end;
+
+  n:=ADOQuery6.fieldbyname('AA006').value-m;                                      //未請購量
+
+  ADOQuery5.close;
+  ADOQuery5.SQL.Clear;
+  ADOQuery5.SQL.add('update COPAA');
+  ADOQuery5.sql.add('SET AA012=:AA012,AA010=:AA010,AA011=:AA011,AA008=:AA008');
+  ADOQuery5.sql.add('WHERE Id=:Id');
+  ADOQuery5.Parameters.parambyname('AA012').VALUE:=m;
+  ADOQuery5.Parameters.parambyname('AA008').VALUE:=n;
+  ADOQuery5.Parameters.parambyname('AA010').VALUE:=0;
+  ADOQuery5.Parameters.parambyname('AA011').VALUE:=0;
+  ADOQuery5.Parameters.parambyname('Id').VALUE:=ADOQuery6.fieldbyname('Id').value;
+  ADOQuery5.ExecSQL;
+
+  m:=0;
+  n:=0;
+
+  ADOQuery7.close;                                                                 //查詢加購單
+  ADOQuery7.SQL.Clear;
+  ADOQuery7.SQL.add('SELECT TB001,TB002,TB003,TB004,TB005,TB006,TB009,TB025,TB029,TB030,TB031');
+  ADOQuery7.sql.add('FROM PURTB');
+  ADOQuery7.sql.add('WHERE TB031=:s1');
+  ADOQuery7.sql.add('and TB025<>:s2');
+  ADOQuery7.sql.add('and TB001=:s3');
+  ADOQuery7.Parameters.parambyname('s1').VALUE:=ADOQuery6.fieldbyname('Id').value;
+  ADOQuery7.Parameters.parambyname('s2').VALUE:='V';
+  ADOQuery7.Parameters.parambyname('s3').VALUE:='312';
+  ADOQuery7.open;
+  ADOQuery7.first;
+  if ADOQuery7.recordcount > 0 then
+    begin
+    for i:= 1 to ADOQuery7.recordcount do
+      begin
+        m:=m+ADOQuery7.FieldByName('TB009').value;                                 //計算已加購量
+        ADOQuery7.next;
+      end;                                                                         //計算已加購比例
+    n:=m/ADOQuery6.fieldbyname('AA006').value*100;
+  end;
+
+  ADOQuery5.close;
+  ADOQuery5.SQL.Clear;
+  ADOQuery5.SQL.add('update COPAA');
+  ADOQuery5.sql.add('SET AA013=:AA013,AA014=:AA014');
+  ADOQuery5.sql.add('WHERE Id=:Id');
+  ADOQuery5.Parameters.parambyname('AA013').VALUE:=m;
+  ADOQuery5.Parameters.parambyname('AA014').VALUE:=n;
+  ADOQuery5.Parameters.parambyname('Id').VALUE:=ADOQuery6.fieldbyname('Id').value;
+  ADOQuery5.ExecSQL;
+
+//  ADOQuery6.close;
+//  ADOQuery6.open;
+
+  {
+  ADOQuery5.close;
+  ADOQuery5.SQL.Clear;
+  ADOQuery5.SQL.add('update COPAA');
+  ADOQuery5.sql.add('SET AA019=TA007');
+  ADOQuery5.sql.add('FROM PURTA');
+  ADOQuery5.sql.add('WHERE AA016=TA001');
+  ADOQuery5.sql.add('AND AA017=TA002');
+  ADOQuery5.ExecSQL;
+}
+end;
+
+procedure TForm1.Button7Click(Sender: TObject);                                  //訂單數量變更需求量重計
+VAR
+  I,J,K:INTEGER;
+begin
+{
+//  Button6.CLICK;                                                                 //更新請購確認碼
+  Button1.CLICK;                                                                 //展 BOM 用料計算
+
+  FOR I :=1 TO StringGrid1.ROWCOUNT DO
+    BEGIN
+      IF s1[I,6]='P' THEN
+        BEGIN
+          ADOQuery2.close;
+          ADOQuery2.SQL.Clear;                                                   //更新用料需求紀錄
+          ADOQuery2.SQL.add('update COPAA');
+//          ADOQuery2.sql.add('set AA006=:AA006,AA007=:AA007,AA008:AA008');
+          ADOQuery2.sql.add('set AA006=:AA006,AA007=:AA007');
+          ADOQuery2.sql.add('WHERE AA001=:AA001');
+          ADOQuery2.sql.add('AND AA002=:AA002');
+          ADOQuery2.sql.add('AND AA003=:AA003');
+          ADOQuery2.sql.add('AND AA005=:AA005');
+//          ADOQuery2.Parameters.ParamByName('Id').Value:=j;
+          ADOQuery2.Parameters.ParamByName('AA001').Value:= Edit1.text;
+          ADOQuery2.Parameters.ParamByName('AA002').Value:= Edit2.text;
+          ADOQuery2.Parameters.ParamByName('AA003').Value:= Edit3.text;
+          ADOQuery2.Parameters.ParamByName('AA005').Value:= s1[I,1];
+          ADOQuery2.Parameters.ParamByName('AA006').Value:= STRTOFLOAT(s1[I,4]);
+          ADOQuery2.Parameters.ParamByName('AA007').Value:= STRTOFLOAT(s1[I,5]);
+//          ADOQuery2.Parameters.ParamByName('AA008').Value:= STRTOFLOAT(s1[I,4]);
+          ADOQuery2.ExecSQL;
+        END;
+    END;
+  ADOQuery6.ACTIVE :=FALSE;
+  ADOQuery6.ACTIVE :=TRUE;
+}
+end;
+
+procedure TForm1.DBGrid2KeyPress(Sender: TObject; var Key: Char);                    // 打 enter 後更新加購比例
+var
+  i,j:real;
+begin
+{
+  if (key=#13)  or (key=#24) or (key=#25) then
+    begin
+      J:=0;
+      if (ADOQuery6.FieldByName('AA006').Asfloat)>0 then j:=ADOQuery6.FieldByName('AA010').Asfloat/ADOQuery6.FieldByName('AA006').Asfloat*100;
+      ADOQuery2.close;
+      ADOQuery2.SQL.Clear;
+      ADOQuery2.SQL.add('update COPAA');
+      ADOQuery2.sql.add('set AA011=:AA011');
+      ADOQuery2.sql.add('WHERE Id=:Id');
+      ADOQuery2.Parameters.ParamByName('Id').Value:=ADOQuery6.FieldByName('Id').value;
+      ADOQuery2.Parameters.ParamByName('AA011').Value:= j;
+      ADOQuery2.ExecSQL;
+      ADOQuery6.refresh;
+      ADOQuery6.Next;
+    end;
+}
+end;
+
+procedure TForm1.DBGrid2DrawDataCell(Sender: TObject; const Rect: TRect;
+  Field: TField; State: TGridDrawState);
+var
+  i,j:real;
+begin
+{
+  if ADOQuery6.active=false then exit;
+  i:=strtofloat(Edit8.text);
+  j:=ADOQuery6.FieldByName('AA010').Asfloat/ADOQuery6.FieldByName('AA006').Asfloat*100;
+  Label9.caption:=floattostr(j);
+  if ADOQuery6.FieldByName('AA007').Asfloat > ADOQuery6.FieldByName('AA006').Asfloat then
+     DBGrid2.Canvas.Font.Color := clBlue;
+  if ADOQuery6.FieldByName('AA008').Asfloat > ADOQuery6.FieldByName('AA006').Asfloat then
+     DBGrid2.Canvas.Font.Color := clRed;
+  if ADOQuery6.FieldByName('AA011').Asfloat > i then
+     DBGrid2.Canvas.Font.Color := clRed;
+  if (ADOQuery6.FieldByName('AA011').Asfloat+ADOQuery6.FieldByName('AA014').Asfloat) > i then
+     DBGrid2.Canvas.Font.Color := clRed;
+  if j > i then
+     DBGrid2.Canvas.Font.Color := clRed;
+  DBGrid2.DefaultDrawDataCell(Rect,Field,State);
+}
+end;
+
+procedure TForm1.Button8Click(Sender: TObject);                                  //拋加購單
+VAR
+  s:array [1..10] of string;
+  I,J:INTEGER;
+  i1,i2:real;
+begin
+  i2:=1;                                                                         // 1% 加購率
+
+  if ADOQuery6.active=false then exit;
+
+  s[1]:=datetostr(now);                                                          //日期   2010/12/30
+  s[2]:=copy(s[1],1,4)+copy(s[1],6,2)+'0000';                                    //單號   2010120000
+  s[3]:=copy(s[1],1,4)+copy(s[1],6,2)+'0001';                                    //單號   2010120001
+  S[4]:=copy(s[1],1,4)+copy(s[1],6,2)+copy(s[1],9,2);                            //日期   20101230
+  S[5]:=Edit1.text+'-'+Edit2.text+'-'+Edit3.text;                                //訂單   222-2010120007-0001
+
+  ADOQuery3.close;
+  ADOQuery3.SQL.Clear;
+  ADOQuery3.SQL.add('SELECT TA002');
+  ADOQuery3.sql.add('FROM PURTA');
+  ADOQuery3.sql.add('WHERE TA001=:s1');
+  ADOQuery3.sql.add('AND TA002>:s2');
+  ADOQuery3.sql.add('ORDER BY TA002');
+  ADOQuery3.Parameters.parambyname('s1').VALUE:='312';
+  ADOQuery3.Parameters.parambyname('s2').VALUE:=s[2];
+  ADOQuery3.open;
+  ADOQuery3.LAST;
+
+  IF ADOQuery3.RECORDCOUNT>0 THEN
+    BEGIN
+      i1:=ADOQuery3.fieldbyname('TA002').asfloat+1;                               //找出單號
+      s[3]:=floattoStr(i1);
+    END;
+
+  Label14.caption:='312';
+  Label15.caption:=s[3];
+  Button10.click;
+
+  ADOQuery2.close;                                                                //寫入請購單頭
+  ADOQuery2.SQL.Clear;
+  ADOQuery2.SQL.add('insert into PURTA (COMPANY,CREATOR,USR_GROUP,CREATE_DATE,FLAG,TA001,TA002,TA013,TA004,TA005,TA006,TA007,TA008,TA009,TA010,TA011,TA012,TA015,TA016,TA017,TA020,TA021,TA022,TA023,TA024,TA551)');
+  ADOQuery2.sql.add('values (:COMPANY,:CREATOR,:USR_GROUP,:CREATE_DATE,:FLAG,:TA001,:TA002,:TA013,:TA004,:TA005,:TA006,:TA007,:TA008,:TA009,:TA010,:TA011,:TA012,:TA015,:TA016,:TA017,:TA020,:TA021,:TA022,:TA023,:TA024,:TA551)');
+  ADOQuery2.Parameters.ParamByName('COMPANY').Value:='KINMAC';
+  ADOQuery2.Parameters.ParamByName('CREATOR').Value:='070144';
+  ADOQuery2.Parameters.ParamByName('USR_GROUP').Value:='L000';
+  ADOQuery2.Parameters.ParamByName('CREATE_DATE').Value:=s[4];
+  ADOQuery2.Parameters.ParamByName('FLAG').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA001').Value:='312';
+  ADOQuery2.Parameters.ParamByName('TA002').Value:=s[3];
+  ADOQuery2.Parameters.ParamByName('TA013').Value:=s[4];
+  ADOQuery2.Parameters.ParamByName('TA004').Value:='L100';
+  ADOQuery2.Parameters.ParamByName('TA005').Value:='';
+  ADOQuery2.Parameters.ParamByName('TA006').Value:=s[5];
+  ADOQuery2.Parameters.ParamByName('TA007').Value:='N';
+  ADOQuery2.Parameters.ParamByName('TA008').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA009').Value:='9';
+  ADOQuery2.Parameters.ParamByName('TA010').Value:='01';
+  ADOQuery2.Parameters.ParamByName('TA011').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA012').Value:='070144' ;
+  ADOQuery2.Parameters.ParamByName('TA015').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA016').Value:='N';
+  ADOQuery2.Parameters.ParamByName('TA017').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA020').Value:='0' ;
+  ADOQuery2.Parameters.ParamByName('TA021').Value:='0000' ;
+  ADOQuery2.Parameters.ParamByName('TA022').Value:='';
+  ADOQuery2.Parameters.ParamByName('TA023').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA024').Value:='0';
+  ADOQuery2.Parameters.ParamByName('TA551').Value:='0';
+  ADOQuery2.ExecSQL;
+
+  ADOQuery6.FIRST;
+  J:=1001;
+  FOR I:= 1 TO ADOQuery6.RECORDCOUNT DO
+    BEGIN
+//      if (ADOQuery6.fieldbyname('AA010').value>0)  and (ADOQuery6.fieldbyname('AA011').value<= i2)then    //有數量 且比例<可加購率
+      if (ADOQuery6.fieldbyname('AA010').value>0) then                           //有數量
+        begin
+{
+          ADOQuery3.close;                                                      //強制作廢原請購單
+          ADOQuery3.SQL.Clear;
+          ADOQuery3.sql.add('UPDATE PURTA');
+          ADOQuery3.sql.add('SET TA007=:S3');
+          ADOQuery3.sql.add('WHERE TA001=:s1');
+          ADOQuery3.sql.add('AND TA002=:s2');
+          ADOQuery3.Parameters.parambyname('s1').VALUE:='312';
+          ADOQuery3.Parameters.parambyname('s2').VALUE:=ADOQuery6.fieldbyname('AA017').value;;
+          ADOQuery3.Parameters.parambyname('s3').VALUE:='V';
+          ADOQuery3.ExecSQL;
+}
+          ADOQuery2.close;
+          ADOQuery2.SQL.Clear;                                                    //寫入請購單身
+          ADOQuery2.SQL.add('insert into PURTB (COMPANY,CREATOR,USR_GROUP,CREATE_DATE,FLAG,TB001,TB002,TB003,TB004,TB005,TB006,TB007,TB008,TB009,TB010,TB011,TB012,TB014,TB015,TB020,TB021,TB025,TB032,TB039,TB040,TB042,TB046,TB029,TB030,TB031)');
+          ADOQuery2.sql.add('values (:COMPANY,:CREATOR,:USR_GROUP,:CREATE_DATE,:FLAG,:TB001,:TB002,:TB003,:TB004,:TB005,:TB006,:TB007,:TB008,:TB009,:TB010,:TB011,:TB012,:TB014,:TB015,:TB020,:TB021,:TB025,:TB032,:TB039,:TB040,:TB042,:TB046,:TB029,:TB030,:TB031)');
+          ADOQuery2.Parameters.ParamByName('COMPANY').Value:='KINMAC';
+          ADOQuery2.Parameters.ParamByName('CREATOR').Value:='070144';
+          ADOQuery2.Parameters.ParamByName('USR_GROUP').Value:='L000';
+          ADOQuery2.Parameters.ParamByName('CREATE_DATE').Value:=s[4];
+          ADOQuery2.Parameters.ParamByName('FLAG').Value:='0';
+          ADOQuery2.Parameters.ParamByName('TB001').Value:='312';
+          ADOQuery2.Parameters.ParamByName('TB002').Value:=s[3];
+          ADOQuery2.Parameters.ParamByName('TB003').Value:=J;
+          ADOQuery2.Parameters.ParamByName('TB004').Value:=ADOQuery6.fieldbyname('AA005').value;   //品號
+          ADOQuery2.Parameters.ParamByName('TB005').Value:=ADOQuery6.fieldbyname('MB002').value;   //品名
+          ADOQuery2.Parameters.ParamByName('TB006').Value:=ADOQuery6.fieldbyname('MB003').value;   //規格
+          ADOQuery2.Parameters.ParamByName('TB007').Value:=ADOQuery6.fieldbyname('MB004').value;   //請購單位
+          ADOQuery2.Parameters.ParamByName('TB008').Value:='110';
+          ADOQuery2.Parameters.ParamByName('TB009').Value:=ADOQuery6.fieldbyname('AA010').value;   //加購數量
+          ADOQuery2.Parameters.ParamByName('TB010').Value:='';
+          ADOQuery2.Parameters.ParamByName('TB011').Value:=ADOQuery6.fieldbyname('AA009').value;   //需求日期
+          ADOQuery2.Parameters.ParamByName('TB012').Value:='';
+          ADOQuery2.Parameters.ParamByName('TB014').Value:=ADOQuery6.fieldbyname('AA010').value;
+          ADOQuery2.Parameters.ParamByName('TB015').Value:=ADOQuery6.fieldbyname('MB004').value;
+          ADOQuery2.Parameters.ParamByName('TB020').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB021').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB025').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB032').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB039').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB040').Value:='1';
+          ADOQuery2.Parameters.ParamByName('TB042').Value:='2';
+          ADOQuery2.Parameters.ParamByName('TB046').Value:='N';
+          ADOQuery2.Parameters.ParamByName('TB029').Value:=ADOQuery6.fieldbyname('AA001').value;
+          ADOQuery2.Parameters.ParamByName('TB030').Value:=ADOQuery6.fieldbyname('AA002').value;
+          ADOQuery2.Parameters.ParamByName('TB031').Value:=ADOQuery6.fieldbyname('Id').value;
+          ADOQuery2.ExecSQL;
+{
+          ADOQuery2.close;
+          ADOQuery2.SQL.Clear;                                                    //回寫請購單別、單號、序號
+          ADOQuery2.SQL.add('UPDATE COPAA');
+          ADOQuery2.sql.add('SET AA016=:AA016,AA017=:AA017,AA018=:AA018,AA019=:AA019');
+          ADOQuery2.sql.add('WHERE Id=:Id');
+          ADOQuery2.Parameters.ParamByName('Id').Value:=ADOQuery6.fieldbyname('Id').value;
+          ADOQuery2.Parameters.ParamByName('AA016').Value:='312';
+          ADOQuery2.Parameters.ParamByName('AA017').Value:=s[3];
+          ADOQuery2.Parameters.ParamByName('AA018').Value:=J;
+          ADOQuery2.Parameters.ParamByName('AA019').Value:='N';
+          ADOQuery2.ExecSQL;
+}
+          J:=J+1;
+        end;
+      ADOQuery6.NEXT;
+    END;
+//  ADOQuery6.active:=false;
+//  ADOQuery6.active:=true;
+  button2.click;
+  ADOQuery7.close;
+end;
+
+procedure TForm1.DBGrid2CellClick(Column: TColumn);                                  //撈未作廢請購紀錄
+begin
+{
+  ADOQuery7.close;
+  ADOQuery7.SQL.Clear;
+  ADOQuery7.SQL.add('SELECT TB001,TB002,TB003,TB004,TB005,TB006,TB009,TB025,TB029,TB030,TB031');
+  ADOQuery7.sql.add('FROM PURTB');
+  ADOQuery7.sql.add('WHERE TB031=:s1');
+  ADOQuery7.sql.add('and TB025<>:s2');
+  ADOQuery7.Parameters.parambyname('s1').VALUE:=ADOQuery6.fieldbyname('Id').value;
+  ADOQuery7.Parameters.parambyname('s2').VALUE:='V';
+  ADOQuery7.open;
+}
+end;
+
+procedure TForm1.Button9Click(Sender: TObject);
+var
+  user,password,domain: string;
+  phToken: cardinal;
+begin
+   user:=Edit9.text;
+   password:=Edit11.text;
+   domain:=Edit10.text;
+
+  if LogonUser(pChar(User), pChar(Domain), pChar(Password),
+     LOGON32_LOGON_NETWORK,LOGON32_PROVIDER_DEFAULT,phToken) then
+    ShowMessage('ok')
+  else
+    ShowMessage('fail');
+end;
+
+procedure TForm1.Button10Click(Sender: TObject);                                  //原物料需求明細加購列印
+var
+  i:integer;
+  j:real;
+begin
+{
+  ADOQuery6.first;
+  for i:= 1 to ADOQuery6.RecordCount do
+    begin
+      j:=ADOQuery6.FieldByName('AA010').Asfloat/ADOQuery6.FieldByName('AA006').Asfloat*100;    // 更新加購比例
+      ADOQuery2.close;
+      ADOQuery2.SQL.Clear;
+      ADOQuery2.SQL.add('update COPAA');
+      ADOQuery2.sql.add('set AA011=:AA011');
+      ADOQuery2.sql.add('WHERE Id=:Id');
+      ADOQuery2.Parameters.ParamByName('Id').Value:=ADOQuery6.FieldByName('Id').value;
+      ADOQuery2.Parameters.ParamByName('AA011').Value:= j;
+      ADOQuery2.ExecSQL;
+      ADOQuery6.Next;
+    end;
+  ADOQuery6.refresh;
+
+  ADOQuery9.close;                                                               //撈加購量>0 用料需求紀錄
+  ADOQuery9.SQL.Clear;
+  ADOQuery9.SQL.add('SELECT AA001,AA002,AA003,AA004,AA005,AA006,AA007,AA008,AA009,AA010,AA011,MB002,MB003,MB004,AA012,AA013,AA014,AA015,AA016,Id');
+  ADOQuery9.sql.add('FROM COPAA,INVMB');
+  ADOQuery9.sql.add('WHERE AA001=:s1');
+  ADOQuery9.sql.add('AND AA002=:s2');
+  ADOQuery9.sql.add('AND AA003=:s3');
+  ADOQuery9.sql.add('AND AA005=MB001');
+  ADOQuery9.sql.add('AND AA010>:s4');
+  ADOQuery9.sql.add('order by AA004');
+  ADOQuery9.Parameters.parambyname('s1').VALUE:=Edit1.text;
+  ADOQuery9.Parameters.parambyname('s2').VALUE:=Edit2.text;
+  ADOQuery9.Parameters.parambyname('s3').VALUE:=Edit3.text;
+  ADOQuery9.Parameters.parambyname('s4').VALUE:='0';
+  ADOQuery9.open;
+  ADOQuery9.first;
+
+  qr2.QRLabel15.caption:=Edit1.text;
+  qr2.QRLabel16.caption:=Edit2.text;
+  qr2.QRLabel17.caption:=Edit3.text;
+  qr2.QRLabel18.caption:=Edit4.text;
+  qr2.QRLabel19.caption:=Edit5.text;
+  qr2.QRLabel22.caption:=Label11.caption;
+  qr2.QRLabel24.caption:=Label10.caption;
+  qr2.QRLabel26.caption:=Label14.caption;
+  qr2.QRLabel28.caption:=Label15.caption;
+  qr2.preview;
+}
+end;
+
+procedure TForm1.DBGrid2ColExit(Sender: TObject);                                    // 更新加購比例
+var
+  i,j:real;
+begin
+{
+  j:=ADOQuery6.FieldByName('AA010').Asfloat/ADOQuery6.FieldByName('AA006').Asfloat*100;
+  ADOQuery2.close;
+  ADOQuery2.SQL.Clear;
+  ADOQuery2.SQL.add('update COPAA');
+  ADOQuery2.sql.add('set AA011=:AA011');
+  ADOQuery2.sql.add('WHERE Id=:Id');
+  ADOQuery2.Parameters.ParamByName('Id').Value:=ADOQuery6.FieldByName('Id').value;
+  ADOQuery2.Parameters.ParamByName('AA011').Value:= j;
+  ADOQuery2.ExecSQL;
+  ADOQuery6.refresh;
+}
+end;
+
+procedure TForm1.Edit9KeyPress(Sender: TObject; var Key: Char);
+begin
+//  Label13.Caption:=inttostr(ord(key));
+end;
+
+procedure TForm1.DBGrid2Exit(Sender: TObject);                                     // 更新加購比例
+var
+  i:integer;
+  j:real;
+begin
+{
+  ADOQuery6.first;
+  for i:= 1 to ADOQuery6.RecordCount do
+    begin
+      j:=ADOQuery6.FieldByName('AA010').Asfloat/ADOQuery6.FieldByName('AA006').Asfloat*100;
+      ADOQuery2.close;
+      ADOQuery2.SQL.Clear;
+      ADOQuery2.SQL.add('update COPAA');
+      ADOQuery2.sql.add('set AA011=:AA011');
+      ADOQuery2.sql.add('WHERE Id=:Id');
+      ADOQuery2.Parameters.ParamByName('Id').Value:=ADOQuery6.FieldByName('Id').value;
+      ADOQuery2.Parameters.ParamByName('AA011').Value:= j;
+      ADOQuery2.ExecSQL;
+      ADOQuery6.Next;
+    end;
+  ADOQuery6.refresh;
+}
+end;
+
+procedure TForm1.DBGrid4CellClick(Column: TColumn);
+begin
+{
+  Edit1.text:= copy(ADOQuery11.fieldbyname('OrderNo').value,1,3);
+  Edit2.text:= copy(ADOQuery11.fieldbyname('OrderNo').value,5,10);
+  Edit3.text:= ADOQuery11.fieldbyname('PMItemNo').value;
+  Edit4.text:= ADOQuery11.fieldbyname('ERPItemNo').value;
+  Edit5.text:= ADOQuery11.fieldbyname('Quantity').value;
+  Edit6.text:= Edit4.text;
+  Edit7.text:= Edit5.text;
+  Label11.Caption:= ADOQuery11.fieldbyname('ERPItemNo').value;
+  Label10.Caption:= ADOQuery11.fieldbyname('PMName').value;
+
+  ADOQuery10.close;                                                               //品號查品名
+  ADOQuery10.SQL.Clear;
+  ADOQuery10.SQL.add('SELECT MB001,MB002');
+  ADOQuery10.sql.add('FROM INVMB');
+  ADOQuery10.sql.add('WHERE MB001=:s1');
+  ADOQuery10.Parameters.parambyname('s1').VALUE:=Label11.caption;
+  ADOQuery10.open;
+  Label11.caption:=ADOQuery10.fieldbyname('MB002').value;
+
+  Button2.CLICK;
+}
+end;
+
+procedure TForm1.Button11Click(Sender: TObject);
+begin
+  Label46.caption:='0';
+  Label24.caption:='0';
+  Label26.caption:='0';        
+  Label77.caption:='0';
+  Label44.caption:='0';
+  Label30.caption:='0';
+  Label33.caption:='0';
+  Label78.caption:='0';
+  Label83.caption:='0';
+  Label84.caption:='0';
+  Edit7.text:=Edit16.text;
+  Button1.Click;        //用料計算
+end;
+
+procedure TForm1.Button12Click(Sender: TObject);
+begin
+  form3.edit3.text:=ADOQuery6.fieldbyname('AA004').value;
+  form3.edit4.text:=ADOQuery6.fieldbyname('AA005').value;
+  form3.edit5.text:=ADOQuery6.fieldbyname('AA020').value;
+  form3.edit7.text:=ADOQuery6.fieldbyname('AA012').value;
+  form3.edit8.text:=ADOQuery6.fieldbyname('AA018').value;
+  form3.Label11.caption:=ADOQuery6.fieldbyname('ID').value;
+
+  form3.ADOQuery1.close;                                                               //查取替代料
+  form3.ADOQuery1.SQL.Clear;
+  form3.ADOQuery1.SQL.add('select AA004,AA005,AA006,AA007,AA012,AA015,Id');
+  form3.ADOQuery1.sql.add('FROM COPAA');
+  form3.ADOQuery1.sql.add('WHERE AA019=:s1');
+  form3.ADOQuery1.sql.add('order by Id');
+  form3.ADOQuery1.Parameters.parambyname('s1').VALUE:=form3.Label11.caption;
+  form3.ADOQuery1.open;
+  form3.ADOQuery1.last; 
+  form3.show;
+end;
+
+procedure TForm1.ComboBox11Change(Sender: TObject);
+var
+  s:string;
+begin
+  if ComboBox11.itemindex=0 then  s:='1S';        //模組類型 SPV BIPV
+  if ComboBox11.itemindex=1 then  s:='1G';
+  pn:=s+copy(pn,3,10);
+  edit6.text:=pn;
+  Label21.caption:=pn;
+end;
+
+procedure TForm1.ComboBox12Change(Sender: TObject);
+var
+  s:string;
+begin
+  if ComboBox12.itemindex=0 then s:='6P';         //Cell尺寸+種類
+  if ComboBox12.itemindex=1 then s:='6M';
+  if ComboBox12.itemindex=2 then s:='5P';
+  if ComboBox12.itemindex=3 then s:='5M';
+  pn:=copy(pn,1,3)+s+copy(pn,6,7);
+  edit6.text:=pn;
+  Label21.caption:=pn;
+end;
+
+procedure TForm1.ComboBox3Change(Sender: TObject);
+var
+  s:string;
+begin
+  s:=inttostr(ComboBox3.itemindex);        //客戶
+  pn:=copy(pn,1,2)+s+copy(pn,4,9);
+  edit6.text:=pn;
+  Label21.caption:=pn;
+end;
+
+procedure TForm1.ComboBox15Change(Sender: TObject);
+var
+  s:string;
+begin
+  if ComboBox15.itemindex=0 then s:='6A';            //Layout
+  if ComboBox15.itemindex=1 then s:='69';
+  if ComboBox15.itemindex=2 then s:='68';
+  if ComboBox15.itemindex=3 then s:='67';
+  if ComboBox15.itemindex=4 then s:='66';
+  if ComboBox15.itemindex=5 then s:='65';
+  if ComboBox15.itemindex=6 then s:='6C';
+  if ComboBox15.itemindex=7 then s:='22';
+  if ComboBox15.itemindex=8 then s:='24';
+  if ComboBox15.itemindex=9 then s:='49';
+  if ComboBox15.itemindex=10 then s:='4A';
+  pn:=copy(pn,1,5)+s+copy(pn,8,5);
+  edit6.text:=pn;
+  Label21.caption:=pn;
+end;
+
+procedure TForm1.ComboBox1Change(Sender: TObject);
+var
+  s:string;
+begin                                           //額定功率
+  s:=ComboBox1.text;
+  pn:=copy(pn,1,7)+s+copy(pn,11,2);
+  edit6.text:=pn;
+  Label21.caption:=pn;
+end;
+
+procedure TForm1.ComboBox2Change(Sender: TObject);
+begin
+  if (ComboBox2.itemindex<10) then sc:='0'+inttostr(ComboBox2.itemindex+1);       //指定廠牌Cell Maker
+  if (ComboBox2.itemindex>9) then sc:=inttostr(ComboBox2.itemindex+1);
+  if (ComboBox2.itemindex>17) then sc:=inttostr(ComboBox2.itemindex+79);
+  cellchange:=1;
+end;
+
+procedure TForm1.Edit14Change(Sender: TObject);
+begin
+  TC009:=STRTOFLOAT(EDIT14.TEXT);
+end;
+
+procedure TForm1.Edit14KeyPress(Sender: TObject; var Key: Char);
+begin
+  TC009:=STRTOFLOAT(EDIT14.TEXT);
+end;
+
+procedure TForm1.Edit16Change(Sender: TObject);
+begin
+  Edit7.text:=Edit16.text;
+end;
+
+procedure TForm1.ComboBox4Change(Sender: TObject);
+begin
+  Label45.caption:=ComboBox4.text;
+  Label25.caption:=ComboBox4.text;
+  Label27.caption:=ComboBox4.text;
+  Label85.caption:=ComboBox4.text;
+  Label42.caption:=ComboBox4.text;
+  ADOQuery8.close;                                                             //查匯率
+  ADOQuery8.SQL.Clear;
+  ADOQuery8.SQL.add('select MG002,MG003');
+  ADOQuery8.sql.add('FROM CMSMG');
+  ADOQuery8.sql.add('WHERE MG001=:s1');
+  ADOQuery8.sql.add('ORDER BY MG002');
+  ADOQuery8.Parameters.parambyname('s1').VALUE:=ComboBox4.TEXT;
+  ADOQuery8.open;
+  ADOQuery8.LAST;
+  EDIT14.TEXT:=FLOATTOSTR(ADOQuery8.fieldbyname('MG003').value);
+  TC009:=STRTOFLOAT(EDIT14.TEXT);  //匯率
+end;
+
+end.
